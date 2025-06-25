@@ -7,12 +7,12 @@
     </div>
     <form {{--action="{{ route('enviarbanco.st') }}" method="POST" enctype="multipart/form-data"--}}>
         @csrf
-        <input type="text" placeholder="Type what do you want...">
+        <input type="text" placeholder="Type what do you looking-for...">
         <button type="submit">Search</button>
     </form>
     <div class="header-functions">
         <ul>
-            <li><button>Publish</button></li>
+            <li><a class="publish-link" href="/publish">Publish</a></li>
             <li><a href="">Highlights</a></li>
             <li><a href="/favorites">Favorites</a></li>
             <li><a href="">My Profile</a></li>

@@ -10,7 +10,7 @@
 }
 
 .header input {
-    width: 400px;
+    width: 500px;
     padding: 5px;
     border: 1px solid #ced4da;
     border-radius: 4px;
@@ -25,6 +25,7 @@
     color: white;
     cursor: pointer;
     font-size: 1.2em;
+    font-weight: bold;
 }
 
 .header ul {
@@ -37,4 +38,17 @@
 .header ul li a {
     text-decoration: none;
     font-size: 1.2em;
+}
+
+.header .publish-link {
+    color: #0d74e2;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    -webkit-transition: all 0.5s ease;
+}
+
+.header .publish-link:hover {
+    color: white;
+    background-color: #0d74e2;
 }
