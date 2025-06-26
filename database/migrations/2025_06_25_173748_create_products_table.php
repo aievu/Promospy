@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('slug');
-            $table->string('image_url')->nullable();
+            $table->string('sale_url', 500);
+            $table->string('image_url', 500);
             $table->double('price', 10, 2);
 
             $table->unsignedBigInteger('user_id');

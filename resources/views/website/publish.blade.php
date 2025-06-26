@@ -8,22 +8,27 @@
     <p>Here you can publish your product.</p>
     <div class="publish-content">
         <form action="{{ route('publish.store') }}" method="POST" enctype="multipart/form-data">
+            @if (session('success'))
+                <div style="color: green; margin-bottom: 10px;">
+                    {{ session('success') }}
+                </div>
+            @endif
             @csrf
             <div class="form-content">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
 
-                <label for="descricao">Descrição:</label>
-                <input type="text" id="descricao" name="descricao" required>
+                <label for="description">Description:</label>
+                <input type="text" id="description" name="description" required>
 
-                <label for="url-promocao">URL Promoção:</label>
-                <input type="text" id="url-promocao" name="url-promocao" required>
+                <label for="sale-url">Sale URL:</label>
+                <input type="text" id="sale-url" name="sale-url" required>
 
-                <label for="url-imagem">URL Imagem:</label>
-                <input type="text" id="url-imagem" name="url-imagem" required>
+                <label for="image-url">Image URL:</label>
+                <input type="text" id="image-url" name="image-url" required>
 
-                <label for="preco">Preço:</label>
-                <input type="text" id="preco" name="preco" required>
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
             </div>
             <button type="submit">Publish</button>
         </form>

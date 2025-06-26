@@ -2,20 +2,23 @@
 
 <div class="header">
     <div>
-        <h1><a href="/">Promospy</a></h1>
-        {{-- <img src="" alt=""> --}}
+        <a href="/">
+            <img src="{{ asset('promospy.png' )}}" alt="Promospy">
+        </a>
     </div>
     <form {{--action="{{ route('enviarbanco.st') }}" method="POST" enctype="multipart/form-data"--}}>
         @csrf
         <input type="text" placeholder="Type what do you looking-for...">
-        <button type="submit">Search</button>
+        <button class="header-search-button" type="submit">Search</button>
     </form>
-    <div class="header-functions">
+    <div class="header-links">
+        <a class="publish-link" href="/publish">Publish</a>
+        <a class="highlights-link" href="">Highlights</a>
+    </div>
+    <div class="header-profile">
         <ul>
-            <li><a class="publish-link" href="/publish">Publish</a></li>
-            <li><a href="">Highlights</a></li>
             <li><a href="/favorites">Favorites</a></li>
-            <li><a href="">My Profile</a></li>
+            <li><button class="header-profile-button"><i class="fa-regular fa-user"></i></button></li>
         </ul>
     </div>
 </div>
