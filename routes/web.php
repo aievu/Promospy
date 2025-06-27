@@ -12,3 +12,7 @@ Route::post('/publish/store', [PublicationController::class, 'store'])->name('pu
 Route::get('/favorites', function () {
     return view('website/favorites');
 });
+
+Route::get('/login', function () {
+    return view('website/user/login');
+});
