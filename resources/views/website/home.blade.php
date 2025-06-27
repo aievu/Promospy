@@ -12,17 +12,19 @@
         <div class="product-content">
             @foreach ($products as $product)
                 <div class="product-card">
-                    <i id="favorite-icon" class="fa-regular fa-heart"></i>
                     <div class="product-card-top">
-                        <h2>{{ $product->name }}</h2>
+                        <h3>{{ $product->name }}</h3>
+                        <i id="product-card-favorite-icon" class="fa-regular fa-heart"></i>
                     </div>
-                    <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
-                    <p>{{ $product->description }}</p>
-                    <p>Price: ${{ number_format($product->price, 2) }}</p>
-                    <a href="{{ $product->sale_url }}" class="buy-button">Buy Now</a>
+                    <div class="product-card-body">
+                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                        <p>{{ $product->description }}</p>
+                        <p>Price: ${{ number_format($product->price, 2) }}</p>
+                        <a href="{{ $product->sale_url }}" class="buy-button">Buy Now</a>
+                    </div>
                     <div class="product-card-footer">
                         <div class="product-card-profile">
-                            <p><i id="product-card-profile-icon" class="fa-regular fa-user"></i>Humberto</p>
+                            <i id="product-card-profile-icon" class="fa-regular fa-user"></i><p>Humberto</p>
                         </div>
                         <p>{{ $product->created_at->format('d/m/Y') }}</p>
                     </div>
