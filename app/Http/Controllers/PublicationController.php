@@ -29,7 +29,7 @@ class PublicationController extends Controller
         $product['sale_url'] = $request->input('sale-url');
         $product['image_url'] = $request->input('image-url');
         $product['price'] = $request->input('price');
-        $product['user_id'] = 1;
+        $product['user_id'] = auth()->id();
         $product['category_id'] = 1;
 
         // Assuming you have a Product model to handle the database interaction

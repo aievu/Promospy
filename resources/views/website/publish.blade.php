@@ -15,7 +15,7 @@
             @endif
             @csrf
             <div class="form-content">
-                <label for="name">Name:</label>
+                <label for="name">Product Name:</label>
                 <input type="text" id="name" name="name" required>
 
                 <label for="description">Description:</label>

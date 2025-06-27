@@ -24,7 +24,7 @@
                     </div>
                     <div class="product-card-footer">
                         <div class="product-card-profile">
-                            <i id="product-card-profile-icon" class="fa-regular fa-user"></i><p>Humberto</p>
+                            <i id="product-card-profile-icon" class="fa-regular fa-user"></i><p>{{ $product->user->name }}</p>
                         </div>
                         <p>{{ $product->created_at->format('d/m/Y') }}</p>
                     </div>

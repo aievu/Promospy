@@ -18,4 +18,9 @@ class Product extends Model
         'user_id',
         'category_id'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }
