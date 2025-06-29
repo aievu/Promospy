@@ -20,7 +20,9 @@
     @endif
     <div class="header-profile">
         <ul>
+            @if(auth()->check())
             <li><a href="/favorites">Favorites</a></li>
+            @endif
             <li>
                 <a href="{{ route('login.index')}}" class="header-profile-button">
                      @if(auth()->check())

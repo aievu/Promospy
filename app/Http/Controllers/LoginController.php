@@ -16,7 +16,7 @@ class LoginController extends Controller
     {
         $credentials = $request->validate([
             'email' => 'required|email',
-            'password' => 'required|string',
+            'password' => 'required|min:8|string',
         ], [
             'email.required' => 'Email is required.',
             'email.email' => 'Please provide a valid email address.',
