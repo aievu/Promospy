@@ -9,6 +9,13 @@
     <h1>Welcome to the Promospy's home page</h1>
     <p>This is your best website for sales.</p>
     <div class="home-content">
+        <div class="home-search">
+            <form>
+                @csrf
+                <input type="text" placeholder="Type what do you looking-for...">
+                <button class="header-search-button" type="submit">Search</button>
+            </form>
+        </div>
         <div class="product-content">
             @foreach ($products as $product)
                 <div class="product-card">

@@ -15,15 +15,11 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:8|string',
-        ], [
-            'email.required' => 'Email is required.',
-            'email.email' => 'Please provide a valid email address.',
-            'password.required' => 'Password is required.',
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required|min:8|string|max:100',
         ]);
 
-        if(Auth::attempt($credentials)) {
+        if(Auth::attempt($credentials, $request->remember)) {
             $request->session()->regenerate();
             return redirect()->intended('home')->with('success', 'Login successful!');
         } else {

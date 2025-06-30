@@ -11,34 +11,34 @@
             @csrf
             <div class="form-content">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
+                <input type="text" id="name" name="name">
                 @if($errors && $errors->has('name'))
                     <div style="color: red; margin-bottom: 10px;">
-                        {{ $errors->first('name') }}
+                        <span class="error-messages">{{ $errors->first('name') }}</span>
                     </div>
                 @endif
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email">
                 @if($errors && $errors->has('email'))
                     <div style="color: red; margin-bottom: 10px;">
-                        {{ $errors->first('email') }}
+                        <span class="error-messages">{{ $errors->first('email') }}</span>
                     </div>
                 @endif
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input type="password" id="password" name="password">
                 @if($errors && $errors->has('password'))
                     <div style="color: red; margin-bottom: 10px;">
-                        {{ $errors->first('password') }}
+                        <span class="error-messages">{{ $errors->first('password') }}</span>
                     </div>
                 @endif
 
-                <label for="password_confirmation">Confirm Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" required>
+                <label for="password_confirmation">Confirm Password:</label>
+                <input type="password" id="password_confirmation" name="password_confirmation">
                 @if($errors && $errors->has('password_confirmation'))
                     <div style="color: red; margin-bottom: 10px;">
-                        {{ $errors->first('password_confirmation') }}
+                        <span class="error-messages">{{ $errors->first('password_confirmation') }}</span>
                     </div>
                 @endif
             </div>
@@ -48,6 +48,11 @@
                 </div>
             @endif
             <button type="submit">Register</button>
+            <div class="form-footer">
+                <div>
+                    Already have an account? <a href="{{ route('login.index') }}">Click here</a>
+                </div>
+            </div>
         </form>
     </div>
 @endsection

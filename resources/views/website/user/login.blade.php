@@ -11,28 +11,32 @@
             @csrf
             <div class="form-content">
                 <label for="email">Email:</label>
-                <input id="email" name="email" required>
+                <input class="form-input" id="email" name="email">
                 @if($errors && $errors->has('email'))
                     <div style="color: red; margin-bottom: 10px;">
-                        {{ $errors->first('email') }}
+                        <span class="error-messages">{{ $errors->first('email') }}</span>
                     </div>
                 @endif
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
+                <input class="form-input" type="password" id="password" name="password">
                 @if($errors && $errors->has('password'))
                     <div style="color: red; margin-bottom: 10px;">
-                        {{ $errors->first('password') }}
+                        <span class="error-messages">{{ $errors->first('password') }}</span>
                     </div>
                 @endif
+                <div class="form-remeber">
+                    <input type="checkbox" id="remember" name="remember">
+                    <label for="remember">Remember</label>
+                </div>
             </div>
             @if(session('error'))
                 <div style="color: red; margin-bottom: 10px;">
-                    {{ session('error') }}
+                    <span class="error-messages">{{ session('error') }}</span>
                 </div>
             @endif
             <button type="submit">Login</button>
-            <div class="login-form-footer">
+            <div class="form-footer">
                 <div>
                     Forgot your password? <a href="/">Click here</a>
                 </div>
