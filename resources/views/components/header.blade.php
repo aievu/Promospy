@@ -14,7 +14,7 @@
         <ul>
             @if(auth()->check())
             <li><a href="/favorites">Favorites</a></li>
-            <li><a href="/">My Products</a></li>
+            <li><a href="{{ route('my-products.index')}}">My Products</a></li>
             <li><a href="{{ route('profile.index')}}">Profile</a></li>
             <li><a href="{{ route('login.logout')}}">Log out <i class="fa fa-sign-out"></i></a></li>
             @endif

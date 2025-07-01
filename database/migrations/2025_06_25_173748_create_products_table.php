@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('sale_url', 500);
             $table->string('image_url', 500);
-            $table->double('price', 10, 2);
+            $table->decimal('price', 10, 2);
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

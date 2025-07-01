@@ -1,0 +1,107 @@
+.my-products-content {
+    padding: 70px;
+}
+
+.product-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* @media (max-width: 1024px) {
+    .product-content {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .product-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} */
+
+.product-card {
+                                opacity: 45%;
+    width: 300px;
+    max-width: 300px;
+    height: 400px;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    -webkit-transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.product-card:hover {
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.product-card-top {
+    display: flex;
+    width: 100%;
+    gap: 5px;
+}
+
+.product-card-top h3{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.product-card #product-card-favorite-icon {
+    font-size: 25px;
+    color: rgb(209, 42, 0);
+}
+
+.product-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.product-card img {
+    min-height: 150px;
+    max-height: 200px;
+    max-width: 280px;
+}
+
+.product-card-footer {
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-card-footer .product-card-actions {
+    display: flex;
+    width: 80px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    gap: 5px;
+    padding: 10px;
+    background-color: antiquewhite;
+    cursor: pointer;
+}
+
+.product-card-footer #product-card-actions-icon {
+    font-size: 15px;
+    color: rgb(209, 136, 0);
+    cursor: pointer;
+}
+
+.product-card-footer p {
+    font-size: 1.1em;
+}

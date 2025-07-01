@@ -11,7 +11,7 @@
             @csrf
             <div class="form-content">
                 <label for="email">Email:</label>
-                <input class="form-input" id="email" name="email">
+                <input class="form-input" id="email" name="email" value="{{ old('email')}}">
                 @if($errors && $errors->has('email'))
                     <div style="color: red; margin-bottom: 10px;">
                         <span class="error-messages">{{ $errors->first('email') }}</span>

@@ -11,7 +11,7 @@
             @csrf
             <div class="form-content">
                 <label for="name">Name:</label>
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" value="{{ old('name') }}">
                 @if($errors && $errors->has('name'))
                     <div style="color: red; margin-bottom: 10px;">
                         <span class="error-messages">{{ $errors->first('name') }}</span>
@@ -19,7 +19,7 @@
                 @endif
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email">
+                <input id="email" name="email" value="{{ old('email') }}">
                 @if($errors && $errors->has('email'))
                     <div style="color: red; margin-bottom: 10px;">
                         <span class="error-messages">{{ $errors->first('email') }}</span>
@@ -27,7 +27,7 @@
                 @endif
 
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" >
                 @if($errors && $errors->has('password'))
                     <div style="color: red; margin-bottom: 10px;">
                         <span class="error-messages">{{ $errors->first('password') }}</span>
