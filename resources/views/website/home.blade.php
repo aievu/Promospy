@@ -25,9 +25,11 @@
                     </div>
                     <div class="product-card-body">
                         <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
-                        <p>{{ $product->description }}</p>
-                        <p>Price: ${{ number_format($product->price, 2) }}</p>
-                        <a href="{{ $product->sale_url }}" class="buy-button">Buy Now</a>
+                        <div class="price-buy">
+                            <p class="price">$ {{ number_format($product->price, 2) }}</p>
+                            <a href="{{ $product->sale_url }}" class="buy-button">Buy Now</a>
+                        </div>
+                        <p class="more-details">Click to view more details</p>
                     </div>
                     <div class="product-card-footer">
                         <div class="product-card-profile">

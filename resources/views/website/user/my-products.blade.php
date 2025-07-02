@@ -22,21 +22,24 @@
                         </div>
                         <div class="product-card-body">
                             <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
-                            <p>{{ $product->description }}</p>
-                            <p>Price: ${{ number_format($product->price, 2) }}</p>
+                                <div class="price-buy">
+                                <p class="price">$ {{ number_format($product->price, 2) }}</p>
+                                <a href="{{ $product->sale_url }}" class="buy-button">Buy Now</a>
+                            </div>
+                            <p class="more-details">Click to view more details</p>
                         </div>
                         <div class="product-card-footer">
-                            <form action="" method="POST">
+                            <form action="" method="PUT">
                                 @csrf
-                                @method('DELETE')
-                                <button type="submit" class="product-card-actions" style="border-color: blue">
+                                @method('UPDATE')
+                                <button type="submit" class="product-card-actions edit">
                                     <i id="product-card-actions-icon" class="fa-regular fa-edit"></i><p>Edit</p>
                                 </button>
                             </form>
                             <form action="{{ route('my-products.delete', $product->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="product-card-actions" style="border-color: red">
+                                <button type="submit" class="product-card-actions delete">
                                     <i id="product-card-actions-icon" class="fa-regular fa-trash-can"></i><p>Delete</p>
                                 </button>
                             </form>
