@@ -1,4 +1,4 @@
-@vite('resources/css/website/publish.css')
+@vite(['resources/css/website/publish.css','resources/js/website/publish.js'])
 @extends('layout/login-register-layout')
 @section('title', 'Publish')
 
@@ -63,14 +63,16 @@
             <div class="second-block">
                 <div class="product-card">
                     <div class="product-card-top">
-                        <h3>Product name</h3>
+                        <h3 id="preview-name">Product name</h3>
                         <i id="product-card-favorite-icon" class="fa-regular fa-heart"></i>
                     </div>
                     <div class="product-card-body">
-                        <img src=" " alt=" ">
-                        <p>Description</p>
-                        <p>Price: $ 9,999.99</p>
-                        <a href=" " class="buy-button">Buy Now</a>
+                        <img id="preview-image" src="https://img.freepik.com/vetores-gratis/adesivo-caixa-vazia-aberta-em-fundo-branco_1308-68243.jpg?semt=ais_hybrid&w=740" alt="Product Name">
+                        <div class="price-buy">
+                            <p id="preview-price" class="price">$ 0.00</p>
+                            <a class="buy-button">Buy Now</a>
+                        </div>
+                        <p class="more-details">Click to view more details</p>
                     </div>
                     <div class="product-card-footer">
                         <div class="product-card-profile">

@@ -27,7 +27,7 @@
                         <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
                         <div class="price-buy">
                             <p class="price">$ {{ number_format($product->price, 2) }}</p>
-                            <a href="{{ $product->sale_url }}" class="buy-button">Buy Now</a>
+                            <a href="{{ $product->sale_url }}" target="_blank" class="buy-button">Buy Now</a>
                         </div>
                         <p class="more-details">Click to view more details</p>
                     </div>
