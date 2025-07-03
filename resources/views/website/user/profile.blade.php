@@ -8,7 +8,7 @@
     <p>Here you can see your profile information.</p>
     <div class="profile-content">
         <div class="profile-info">
-            <h2>{{ auth()->user()->name }}</h2>
+            <h2>{{ auth()->user()->first_name . ' ' . auth()->user()->last_name }}</h2>
             <p>Email: {{ auth()->user()->email }}</p>
             <p>Joined: {{ auth()->user()->created_at->format('d/m/Y') }}</p>
         </div>

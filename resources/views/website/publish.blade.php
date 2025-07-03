@@ -76,7 +76,7 @@
                     </div>
                     <div class="product-card-footer">
                         <div class="product-card-profile">
-                            <i id="product-card-profile-icon" class="fa-regular fa-user"></i><p>{{ auth()->user()->name}}</p>
+                            <i id="product-card-profile-icon" class="fa-regular fa-user"></i><p>{{ auth()->user()->first_name}}</p>
                         </div>
                         <p>{{now()->format('d/m/Y')}}</p>
                     </div>

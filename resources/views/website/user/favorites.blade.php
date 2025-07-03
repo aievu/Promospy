@@ -1,23 +1,16 @@
-@vite(['resources/css/website/home.css'])
+@vite('resources/css/website/user/favorites.css')
 @extends('layout/website-layout')
-@section('title', 'Home')
+@section('title', 'Favorites')
 
 @component('components/header')
 @endcomponent
 
 @section('content')
-    <h1>Welcome to the Promospy's home page</h1>
-    <p>This is your best website for sales.</p>
-    <div class="home-content">
-        <div class="home-search">
-            <form>
-                @csrf
-                <input type="text" placeholder="Type what do you looking-for...">
-                <button class="header-search-button" type="submit">Search</button>
-            </form>
-        </div>
+    <h1>Welcome to the Promospy's favorites page</h1>
+    <p>Here you can see your favorites choices.</p>
+    <div class="favorites-content">
         <div class="product-content">
-            @forelse ($products as $product)
+            @forelse ($favorites as $product)
                 <div class="product-card">
                     <div class="product-card-top">
                         <h3>{{ $product->name }}</h3>
@@ -48,7 +41,7 @@
                     </div>
                 </div>
             @empty
-                <p>No products publish yet.</p>
+                <p>You don't have any favorites yet.</p>
             @endforelse
         </div>
     </div>

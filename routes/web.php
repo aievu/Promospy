@@ -7,6 +7,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MyProductsController;
+use App\Http\Controllers\FavoriteController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/home', [HomeController::class, 'index']);
@@ -19,9 +20,8 @@ Route::middleware('authenticated')->group(function() {
     Route::get('/publish', [PublicationController::class, 'index'])->name('publish.index');
     Route::post('/publish/store', [PublicationController::class, 'store'])->name('publish.store');
 
-    Route::get('/favorites', function () {
-        return view('website/favorites');
-    });
+    Route::get('/favorites', [FavoriteController::class, 'index'])->name('favorites.index');
+    Route::post('favorites/{product}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 });
 
 
@@ -32,4 +32,5 @@ Route::middleware('guest')->group(function() {
     Route::get('/login', [LoginController::class, 'index'])->name('login.index');
     Route::post('/auth', [LoginController::class, 'login'])->name('loggingin');
 });
+
 Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');

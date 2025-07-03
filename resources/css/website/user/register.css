@@ -24,6 +24,21 @@ form {
     padding: 20px;
 }
 
+.form-content .user-name-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-content .user-name-content div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content .user-name-content input {
+    width: 100%;
+}
+
 .form-content label {
     margin: 5px 0;
 }

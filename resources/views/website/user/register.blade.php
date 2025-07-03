@@ -10,13 +10,27 @@
         <form action="{{ route('register.register')}}" method="POST">
             @csrf
             <div class="form-content">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" value="{{ old('name') }}">
-                @if($errors && $errors->has('name'))
-                    <div style="color: red; margin-bottom: 10px;">
-                        <span class="error-messages">{{ $errors->first('name') }}</span>
+                <div class="user-name-content">
+                    <div>
+                        <label for="first_name">First Name:</label>
+                        <input type="text" id="first_name" name="first_name" maxlength="20" value="{{ old('first_name') }}">
+                        @if($errors && $errors->has('first_name'))
+                            <div style="color: red; margin-bottom: 10px; max-width: 244px;">
+                                <span class="error-messages">{{ $errors->first('first_name') }}</span>
+                            </div>
+                        @endif
                     </div>
-                @endif
+                
+                    <div>
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" id="last_name" name="last_name" maxlength="20" value="{{ old('last_name') }}">
+                        @if($errors && $errors->has('last_name'))
+                            <div style="color: red; margin-bottom: 10px; max-width: 244px;">
+                                <span class="error-messages">{{ $errors->first('last_name') }}</span>
+                            </div>
+                        @endif
+                    </div>
+                </div>
 
                 <label for="email">Email:</label>
                 <input id="email" name="email" value="{{ old('email') }}">
