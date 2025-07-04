@@ -18,9 +18,9 @@
                     @csrf
                     <div class="form-content">
                         <label for="name">Product Name:</label>
-                        <input type="text" id="name" name="name" maxlength="30" value="{{ old('name') }}">
+                        <input class="name-input" type="text" id="name" name="name" maxlength="30" value="{{ old('name') }}">
                         @if($errors && $errors->has('name'))
-                        <div style="color: red; margin-bottom: 10px;">
+                            <div style="color: red; margin-bottom: 10px;">
                                 <span class="error-messages">{{ $errors->first('name') }}</span>
                             </div> 
                         @endif
@@ -28,7 +28,7 @@
                         <label for="description">Description:</label>
                         <textarea type="text" id="description" name="description" maxlength="100" rows="3">{{ old('description') }}</textarea>
                         @if($errors && $errors->has('description'))
-                        <div style="color: red; margin-bottom: 10px;">
+                            <div style="color: red; margin-bottom: 10px;">
                                 <span class="error-messages">{{ $errors->first('description') }}</span>
                             </div> 
                         @endif
@@ -36,7 +36,7 @@
                         <label for="sale-url">Sale URL:</label>
                         <textarea type="text" id="sale-url" name="sale-url" maxlength="500" rows="2">{{ old('sale-url') }}</textarea>
                         @if($errors && $errors->has('sale-url'))
-                        <div style="color: red; margin-bottom: 10px;">
+                            <div style="color: red; margin-bottom: 10px;">
                                 <span class="error-messages">{{ $errors->first('sale-url') }}</span>
                             </div> 
                         @endif
@@ -44,18 +44,35 @@
                         <label for="image-url">Image URL:</label>
                         <textarea type="text" id="image-url" name="image-url" maxlength="500" rows="2">{{ old('image-url') }}</textarea>
                         @if($errors && $errors->has('image-url'))
-                        <div style="color: red; margin-bottom: 10px;">
+                            <div style="color: red; margin-bottom: 10px;">
                                 <span class="error-messages">{{ $errors->first('image-url') }}</span>
                             </div> 
                         @endif
 
-                        <label for="price">Price:</label>
-                        <input class="form-price-input" id="price" name="price" value="{{ old('price') }}">
-                        @if($errors && $errors->has('price'))
-                        <div style="color: red; margin-bottom: 10px;">
-                                <span class="error-messages">{{ $errors->first('price') }}</span>
-                            </div> 
-                        @endif
+                        <div class="price-category">
+                            <div>
+                                <label for="price">Price:</label>
+                                <input class="price-input" id="price" name="price" maxlength="10" value="{{ old('price') }}">
+                                @if($errors && $errors->has('price'))
+                                    <div style="color: red; margin-bottom: 10px;">
+                                        <span class="error-messages">{{ $errors->first('price') }}</span>
+                                    </div> 
+                                @endif    
+                            </div>
+                            
+                            <div>
+                                <label for="price">Category:</label>
+                                <select class="category-option" id="category" name="category">
+                                    <option value="">Select a Category</option>
+                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Category 1</option>
+                                </select>
+                                @if($errors && $errors->has('category'))
+                                    <div style="color: red; margin-bottom: 10px;">
+                                        <span class="error-messages">{{ $errors->first('category') }}</span>
+                                    </div> 
+                                @endif
+                            </div>
+                        </div>
                     </div>
                     <button type="submit">Publish</button>
                 </form>
@@ -69,7 +86,7 @@
                     <div class="product-card-body">
                         <img id="preview-image" src="" alt="Product Name">
                         <div class="price-buy">
-                            <p id="preview-price" class="price">$ 0.00</p>
+                            <p id="preview-price" class="price"></p>
                             <a class="buy-button">Buy Now</a>
                         </div>
                         <p class="more-details">Click to view more details</p>
