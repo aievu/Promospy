@@ -63,11 +63,11 @@
             <div class="second-block">
                 <div class="product-card">
                     <div class="product-card-top">
-                        <h3 id="preview-name">Product name</h3>
+                        <h3 id="preview-name"></h3>
                         <i id="product-card-favorite-icon" class="fa-regular fa-heart"></i>
                     </div>
                     <div class="product-card-body">
-                        <img id="preview-image" src="https://img.freepik.com/vetores-gratis/adesivo-caixa-vazia-aberta-em-fundo-branco_1308-68243.jpg?semt=ais_hybrid&w=740" alt="Product Name">
+                        <img id="preview-image" src="" alt="Product Name">
                         <div class="price-buy">
                             <p id="preview-price" class="price">$ 0.00</p>
                             <a class="buy-button">Buy Now</a>
