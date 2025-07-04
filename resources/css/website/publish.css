@@ -227,3 +227,8 @@ form button {
     font-size: small;
     gap: 20px;
 }
+
+.error-messages {
+    color: red;
+    font-size: 0.8em;
+}

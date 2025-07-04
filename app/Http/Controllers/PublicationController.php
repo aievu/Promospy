@@ -20,7 +20,7 @@ class PublicationController extends Controller
             'description' => 'required|string|max:100|min:10',
             'sale-url' => 'required|url|max:500',
             'image-url' => 'required|url|max:500',
-            'price' => 'required|numeric|min:0|max:999999.99',
+            'price' => 'required|numeric|min:0.01|max:999999.99',
             'category' => 'required',
         ], [
             'sale-url.required' => 'The Sale URL field is required.',
