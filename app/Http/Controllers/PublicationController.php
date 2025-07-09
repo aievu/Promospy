@@ -15,9 +15,14 @@ class PublicationController extends Controller
 
     public function store(Request $request)
     {
+        // Formating price
+        $product = $request->all();
+        $product['price'] = str_replace([',',],[''], $product['price']);
+        $request->merge($product);
+
         $product = $request->validate([
-            'name' => 'required|regex:/^[a-zA-ZÀ-ÿ\s]+$/u|string|max:30|min:3',
-            'description' => 'required|string|max:100|min:10',
+            'name' => 'required|string|max:30|min:3',
+            'description' => 'required|string|max:140|min:10',
             'sale-url' => 'required|url|max:500',
             'image-url' => 'required|url|max:500',
             'price' => 'required|numeric|min:0.01|max:999999.99',

@@ -21,7 +21,7 @@
             <li>
                 @if(auth()->check())
                    <a class="header-user-button">
-                       <p style="color: brown">Olá, {{ auth()->user()->first_name }}</p>
+                       <p style="color: brown">Hello, {{ auth()->user()->first_name }}</p>
                        <div class="header-user-icon"><i class="fa-regular fa-user"></i></div>
                    </a>
                @else

@@ -33,7 +33,9 @@
                         </form>
                     </div>
                     <div class="product-card-body">
-                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                        <div>
+                            <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                        </div>
                         <div class="price-buy">
                             <p class="price">$ {{ number_format($product->price, 2) }}</p>
                             <a href="{{ $product->sale_url }}" target="_blank" class="buy-button">Buy Now</a>

@@ -26,7 +26,7 @@
                         @endif
 
                         <label for="description">Description:</label>
-                        <textarea type="text" id="description" name="description" maxlength="100" rows="3">{{ old('description') }}</textarea>
+                        <textarea type="text" id="description" name="description" maxlength="140" rows="3">{{ old('description') }}</textarea>
                         @if($errors && $errors->has('description'))
                             <div style="color: red; margin-bottom: 10px;">
                                 <span class="error-messages">{{ $errors->first('description') }}</span>
@@ -64,7 +64,11 @@
                                 <label for="price">Category:</label>
                                 <select class="category-option" id="category" name="category">
                                     <option value="">Select a Category</option>
-                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Category 1</option>
+                                    <option value="1" {{ old('category') == 2 ? 'selected' : '' }}>Eletronic</option>
+                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Fashion</option>
+                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Home and Decoration</option>
+                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Beauty and Self Care</option>
+                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Gift Card</option>
                                 </select>
                                 @if($errors && $errors->has('category'))
                                     <div style="color: red; margin-bottom: 10px;">
@@ -102,7 +106,7 @@
         </div>
         <div class="publish-help">
             <h2>What is a publication?</h2>
-            <p>A publication is a product that you want to share with the community. You can add a name, description, sale URL, image URL, and price.</p>
+            <p>A publication is a product that you want to share with the community. You can add a name, description, sale URL, image URL, price and category.</p>
             <h2>Why publish?</h2>
             <p>Publishing your product allows you to reach more potential buyers and increase your saler profile.</p>
             <h2>How to publish?</h2>
