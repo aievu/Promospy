@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Enums\ProductCategoryEnum;
 
 class Product extends Model
 {
@@ -27,5 +28,15 @@ class Product extends Model
     public function favoriteBy()
     {
         return $this->belongsToMany(User::class, 'favorites')->withTimestamps();
+    }
+
+    public function getCategoryLabelAttribute(): String
+    {
+        return ProductCategoryEnum::fromValue($this->category_id)?->label() ?? 'Unknown';
+    }
+
+    public function getCategoryColorAttribute(): String
+    {
+        return ProductCategoryEnum::fromValue($this->category_id)?->color() ?? 'gray';
     }
 }

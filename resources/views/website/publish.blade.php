@@ -64,11 +64,11 @@
                                 <label for="price">Category:</label>
                                 <select class="category-option" id="category" name="category">
                                     <option value="">Select a Category</option>
-                                    <option value="1" {{ old('category') == 2 ? 'selected' : '' }}>Eletronic</option>
-                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Fashion</option>
-                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Home and Decoration</option>
-                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Beauty and Self Care</option>
-                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Gift Card</option>
+                                    <option value="1" {{ old('category') == 1 ? 'selected' : '' }}>Eletronic</option>
+                                    <option value="2" {{ old('category') == 2 ? 'selected' : '' }}>Fashion</option>
+                                    <option value="3" {{ old('category') == 3 ? 'selected' : '' }}>Home and Decoration</option>
+                                    <option value="4" {{ old('category') == 4 ? 'selected' : '' }}>Beauty and Self Care</option>
+                                    <option value="5" {{ old('category') == 5 ? 'selected' : '' }}>Gift Card</option>
                                 </select>
                                 @if($errors && $errors->has('category'))
                                     <div style="color: red; margin-bottom: 10px;">
@@ -88,6 +88,9 @@
                         <i id="product-card-favorite-icon" class="fa-regular fa-heart"></i>
                     </div>
                     <div class="product-card-body">
+                        <div class="category">
+                            <p class="label-category"><i class="fa-regular fa-circle-question"></i>Category</p>
+                        </div>
                         <img id="preview-image" src="" alt="Product Name">
                         <div class="price-buy">
                             <p id="preview-price" class="price"></p>

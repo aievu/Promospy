@@ -33,6 +33,9 @@
                         </form>
                     </div>
                     <div class="product-card-body">
+                        <div class="category" style="background-color:{{ $product->category_color}};">
+                            <p class="label-category"><i class="fa-regular fa-circle-question"></i>{{ $product->category_label}}</p>
+                        </div>
                         <div>
                             <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
                         </div>

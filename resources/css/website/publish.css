@@ -155,6 +155,23 @@ form button {
     height: 100%;
     padding: 10px;
     overflow: hidden;
+    position: relative;
+}
+
+.category {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    padding: 5px;
+    border-radius: 20px;
+    background-color: rgba(209, 136, 0, 0.5);
+    color: rgb(255, 255, 255);
+}
+
+.label-category {
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 .product-card img {
