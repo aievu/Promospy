@@ -37,6 +37,6 @@ class Product extends Model
 
     public function getCategoryColorAttribute(): String
     {
-        return ProductCategoryEnum::fromValue($this->category_id)?->color() ?? 'gray';
+        return ProductCategoryEnum::fromValue($this->category_id)?->color() ?? 'rgba(128, 128, 128, 0.5)';
     }
 }

@@ -12,11 +12,11 @@ enum ProductCategoryEnum: int
 
     public function label(): string {
         return match ($this) {
-            self::ELETRONIC => 'Eletronic',
-            self::FASHION => 'Fashion',
-            self::HOME_AND_DECORATION => 'Home and Decoration',
-            self::BEAUTY_AND_SELF_CARE => 'Beauty and Self Care',
-            self::GIFT_CARD => 'Gift Card'
+            self::ELETRONIC => '<i class="fa-solid fa-mobile-screen"></i>Eletronic',
+            self::FASHION => '<i class="fa-solid fa-shirt"></i>Fashion',
+            self::HOME_AND_DECORATION => '<i class="fa-solid fa-house"></i>Home and Decoration',
+            self::BEAUTY_AND_SELF_CARE => '<i class="fa-solid fa-face-smile-beam"></i>Beauty and Self Care',
+            self::GIFT_CARD => '<i class="fa-solid fa-gift"></i>Gift Card'
         };
     }
 

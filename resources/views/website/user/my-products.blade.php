@@ -16,6 +16,9 @@
                         <h3>{{ $product->name }}</h3>
                     </div>
                     <div class="product-card-body">
+                        <div class="category" style="background-color:{{ $product->category_color}};">
+                            <p class="label-category">{!! $product->category_label!!}</p>
+                        </div>
                         <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
                         <div class="price-buy">
                             <p class="price">$ {{ number_format($product->price, 2) }}</p>

@@ -88,9 +88,7 @@
                         <i id="product-card-favorite-icon" class="fa-regular fa-heart"></i>
                     </div>
                     <div class="product-card-body">
-                        <div class="category">
-                            <p class="label-category"><i class="fa-regular fa-circle-question"></i>Category</p>
-                        </div>
+                        <div class="category" id="preview-category"></div>
                         <img id="preview-image" src="" alt="Product Name">
                         <div class="price-buy">
                             <p id="preview-price" class="price"></p>
