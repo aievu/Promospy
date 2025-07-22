@@ -1,9 +1,11 @@
-@vite('resources/css/website/user/my-products.css')
+@vite(['resources/css/website/user/my-products.css', 'resources/js/website/user/my-products.js'])
 @extends('layout/website-layout')
 @section('title', 'My Products')
 
 @component('components/header')
 @endcomponent
+
+@include('components/edit-product-modal')
 
 @section('content')
     <h1>Welcome to your products page</h1>
@@ -26,10 +28,9 @@
                         <p class="more-details">Click to view more details</p>
                     </div>
                     <div class="product-card-footer">
-                        <form action="" method="PUT">
+                        <form action="">
                             @csrf
-                            @method('UPDATE')
-                            <button type="submit" class="product-card-actions edit">
+                            <button id="openModalBtn" type="submit" class="product-card-actions edit">
                                 <i id="product-card-actions-icon" class="fa-regular fa-edit"></i><p>Edit</p>
                             </button>
                         </form>

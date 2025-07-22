@@ -17,6 +17,16 @@ class MyProductsController extends Controller
         return view('website/user/my-products', compact('products'));
     }
 
+    public function update($id) {
+        $product = Product::findOrFail($id);
+
+        if ($product->user_id !== Auth::id()) {
+            return redirect()->back()->with('error', 'Yu do not have permission to update this product.');
+        }
+
+        return view('website/user/my-products');
+    }
+
     public function delete($id)
     {
         $product = Product::findOrFail($id);

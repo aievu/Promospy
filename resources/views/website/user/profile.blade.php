@@ -1,4 +1,4 @@
-@vite('resources/css/website/user/profile.css')
+@vite(['resources/css/website/user/profile.css', 'resources/js/website/user/profile.js'])
 @extends('layout/website-layout')
 @section('title', 'Profile')
 

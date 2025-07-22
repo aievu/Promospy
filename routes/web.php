@@ -8,9 +8,12 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MyProductsController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\HighlightController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/highlights', [HighlightController::class, 'index'])->name('highlights.index');
 
 Route::middleware('authenticated')->group(function() {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');

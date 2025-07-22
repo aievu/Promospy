@@ -22,11 +22,11 @@ enum ProductCategoryEnum: int
 
     public function color(): String {
         return match ($this) {
-            self::ELETRONIC => 'rgba(0, 185, 209, 0.5)',
-            self::FASHION => 'rgba(209, 0, 63, 0.5)',
-            self::HOME_AND_DECORATION => 'rgba(0, 209, 87, 0.5)',
-            self::BEAUTY_AND_SELF_CARE => 'rgba(73, 0, 209, 0.5)',
-            self::GIFT_CARD => 'rgba(209, 0, 0, 0.5)'
+            self::ELETRONIC => 'rgba(0, 155, 175, 0.5)',
+            self::FASHION => 'rgba(175, 0, 53, 0.5)',
+            self::HOME_AND_DECORATION => 'rgba(0, 168, 70, 0.5)',
+            self::BEAUTY_AND_SELF_CARE => 'rgba(52, 0, 148, 0.5)',
+            self::GIFT_CARD => 'rgba(177, 0, 0, 0.5)'
         };
     }
 

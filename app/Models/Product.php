@@ -25,9 +25,9 @@ class Product extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function favoriteBy()
+    public function highlight()
     {
-        return $this->belongsToMany(User::class, 'favorites')->withTimestamps();
+        return $this->hasMany(Favorite::class);
     }
 
     public function getCategoryLabelAttribute(): String

@@ -1,4 +1,4 @@
-.my-products-content {
+.highlights-content {
     padding: 70px;
 }
 
@@ -86,8 +86,9 @@
 }
 
 .product-card img {
-    max-height: 200px;
-    max-width: 280px;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
 }
 
 .price-buy {
@@ -103,6 +104,26 @@
     font-weight: bold;
 }
 
+.price-buy .buy-button {
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+    background-color: rgb(209, 136, 0);
+    border-radius: 4px;
+    -webkit-transition: all 0.3s ease;
+}
+
+.price-buy .buy-button:hover {
+    scale: 1.05;
+    background-color: brown;
+}
+
+.more-details {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
 .product-card-footer {
     display: flex;
     width: 100%;
@@ -111,34 +132,17 @@
     align-items: center;
 }
 
-.product-card-footer .product-card-actions {
+.product-card-footer .product-card-profile {
     display: flex;
-    width: 80px;
     align-items: center;
-    justify-content: center;
-    border: none;
     border-radius: 4px;
     gap: 5px;
-    padding: 10px;
+    padding: 5px;
     background-color: antiquewhite;
-    cursor: pointer;
-    -webkit-transition: all 0.5s ease;
 }
 
-.product-card-footer .edit:hover{
-    background-color: rgb(215, 231, 250);
-}
-
-.product-card-footer .delete:hover{
-    background-color: rgb(250, 215, 215);
-}
-
-.product-card-footer #product-card-actions-icon {
+.product-card-footer #product-card-profile-icon {
     font-size: 15px;
     color: rgb(209, 136, 0);
     cursor: pointer;
-}
-
-.product-card-footer p {
-    font-size: 1.1em;
 }

@@ -7,8 +7,8 @@
         </a>
     </div>
     <div class="header-links">
-        <a class="publish-link" href="/publish">Publish</a>
-        <a class="highlights-link" href="">Highlights</a>
+        <a class="publish-link" href="{{ route('publish.index') }}">Publish</a>
+        <a class="highlights-link" href="{{ route('highlights.index') }}">Highlights</a>
     </div>
     <div class="header-user">
         <ul>
