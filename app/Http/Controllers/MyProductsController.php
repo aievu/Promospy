@@ -17,7 +17,8 @@ class MyProductsController extends Controller
         return view('website/user/my-products', compact('products'));
     }
 
-    public function update($id) {
+    public function update($id)
+    {
         $product = Product::findOrFail($id);
 
         if ($product->user_id !== Auth::id()) {
@@ -27,10 +28,8 @@ class MyProductsController extends Controller
         return view('website/user/my-products');
     }
 
-    public function delete($id)
+    public function delete(Product $product)
     {
-        $product = Product::findOrFail($id);
-
         if ($product->user_id !== Auth::id()) {
             return redirect()->back()->with('error', ' You do not have permision to delete this product.');
         }

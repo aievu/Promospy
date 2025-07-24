@@ -11,14 +11,17 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HighlightController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::delete('/home/delete/{product}', [HomeController::class, 'delete'])->name('home.delete');
 Route::get('/home', [HomeController::class, 'index']);
 
 Route::get('/highlights', [HighlightController::class, 'index'])->name('highlights.index');
 
 Route::middleware('authenticated')->group(function() {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::delete('/profile/delete', [ProfileController::class, 'delete'])->name('profile.delete');
+
     Route::get('/my-products', [MyProductsController::class, 'index'])->name('my-products.index');
-    Route::delete('my-products/delete/{id}', [MyProductsController::class, 'delete'])->name('my-products.delete');
+    Route::delete('my-products/delete/{product}', [MyProductsController::class, 'delete'])->name('my-products.delete');
 
     Route::get('/publish', [PublicationController::class, 'index'])->name('publish.index');
     Route::post('/publish/store', [PublicationController::class, 'store'])->name('publish.store');

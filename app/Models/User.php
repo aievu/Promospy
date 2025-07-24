@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\Rule;
 
 class User extends Authenticatable
 {
@@ -50,5 +51,15 @@ class User extends Authenticatable
     public function favorites()
     {
         return $this->belongsToMany(Product::class, 'favorites')->withTimestamps();
+    }
+
+    public function rules()
+    {
+        return $this->belongsToMany(Rule::class, 'user_rules'); // pivot table to connect users and rules
+    }
+
+    public function hasRule($ruleName)
+    {
+        return $this->rules()->where('name', $ruleName)->exists();
     }
 }

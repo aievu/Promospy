@@ -34,7 +34,7 @@
                                 <i id="product-card-actions-icon" class="fa-regular fa-edit"></i><p>Edit</p>
                             </button>
                         </form>
-                        <form action="{{ route('my-products.delete', $product->id) }}" method="POST">
+                        <form action="{{ route('my-products.delete', $product) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="product-card-actions delete">
