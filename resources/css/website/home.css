@@ -67,6 +67,10 @@
     cursor: pointer;
 }
 
+.product-card:hover .product-card-admin-actions .delete {
+    opacity: 100%;
+}
+
 .product-card-top {
     display: flex;
     width: 100%;
@@ -128,6 +132,8 @@
     color: white;
     padding: 6px;
     cursor: pointer;
+    opacity: 30%;
+    font-size: 1.2em;
     -webkit-transition: all 0.3s ease;
 }
 

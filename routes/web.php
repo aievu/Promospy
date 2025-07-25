@@ -9,10 +9,13 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\MyProductsController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HighlightController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProductDetailsController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
-Route::delete('/home/delete/{product}', [HomeController::class, 'delete'])->name('home.delete');
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/product/{slug}', [ProductDetailsController::class, 'index'])->name('product-details.index');
 
 Route::get('/highlights', [HighlightController::class, 'index'])->name('highlights.index');
 
@@ -30,6 +33,10 @@ Route::middleware('authenticated')->group(function() {
     Route::post('favorites/{product}', [FavoriteController::class, 'toggle'])->name('favorites.toggle');
 });
 
+Route::middleware('admin')->group(function() {
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::delete('/home/delete/{product}', [HomeController::class, 'delete'])->name('home.delete'); // Admin can delete any product on home page
+});
 
 Route::middleware('guest')->group(function() {
     Route::get('/register', [RegisterController::class, 'index'])->name('register.index');

@@ -13,10 +13,13 @@
     <div class="header-user">
         <ul>
             @if(auth()->check())
-            <li><a href="{{ route('favorites.index') }}">Favorites</a></li>
-            <li><a href="{{ route('my-products.index') }}">My Products</a></li>
-            <li><a href="{{ route('profile.index') }}">Profile</a></li>
-            <li><a href="{{ route('login.logout') }}">Log out <i class="fa fa-sign-out"></i></a></li>
+                <li><a href="{{ route('favorites.index') }}">Favorites</a></li>
+                <li><a href="{{ route('my-products.index') }}">My Products</a></li>
+                <li><a href="{{ route('profile.index') }}">Profile</a></li>
+                @if (auth()->user()->hasRule('admin'))
+                    <li><a href="{{ route('admin.index')}}">Admin</a></li>
+                @endif
+                <li><a href="{{ route('login.logout') }}">Log out <i class="fa fa-sign-out"></i></a></li>
             @endif
             <li>
                 @if(auth()->check())
