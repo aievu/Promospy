@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('rules', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('description')->nullable();
             $table->timestamps();
         });
 
@@ -21,10 +22,10 @@ return new class extends Migration
             $table->id();
 
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('rule_id');
-            $table->foreign('rule_id')->references('id')->on('rules');
+            $table->foreign('rule_id')->references('id')->on('rules')->onDelete('cascade')->onUpdate('cascade');
             
             $table->timestamps();
         });

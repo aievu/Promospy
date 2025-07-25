@@ -36,6 +36,15 @@
                         <div class="category" style="background-color:{{ $product->category_color}};">
                             <p class="label-category">{!! $product->category_label!!}</p>
                         </div>
+                        @can('delete', $product)
+                            <form class="product-card-admin-actions" action="{{ route('home.delete', $product) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="product-card-actions delete">
+                                    <i id="product-card-actions-icon" class="fa-regular fa-trash-can"></i><p>Delete</p>
+                                </button>
+                            </form>
+                        @endcan
                         <div>
                             <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
                         </div>
