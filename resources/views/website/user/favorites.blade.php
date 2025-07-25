@@ -2,8 +2,10 @@
 @extends('layout/website-layout')
 @section('title', 'Favorites')
 
-@component('components/header')
-@endcomponent
+@include('components/header')
+@if(auth()->check() && auth()->user()->hasRule('admin'))
+    @include('components/admin-header')
+@endif
 
 @section('content')
     <h1>Welcome to the Promospy's favorites page</h1>

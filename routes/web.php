@@ -34,7 +34,7 @@ Route::middleware('authenticated')->group(function() {
 });
 
 Route::middleware('admin')->group(function() {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin-dashboard.index');
     Route::delete('/home/delete/{product}', [HomeController::class, 'delete'])->name('home.delete'); // Admin can delete any product on home page
 });
 

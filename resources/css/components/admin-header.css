@@ -1,0 +1,31 @@
+.admin-header {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 10px 20px;
+    background-color: #f3f3f3;
+    border-bottom: 1px solid #caced1;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    gap: 25px;
+    opacity: 30%;
+    -webkit-transition: all 0.5s ease;
+}
+
+.admin-header:hover {
+    opacity: 100%;
+}
+
+.admin-header .admin-header-links li {
+    list-style: none;
+}
+
+.admin-header .admin-header-links a {
+    text-decoration: none;
+    color: #212529;
+    -webkit-transition: all 0.3s ease;
+}
+
+.admin-header .admin-header-links a:hover {
+    font-weight: bold;
+    color: rgb(209, 136, 0);
+}

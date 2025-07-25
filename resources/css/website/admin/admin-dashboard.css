@@ -1,0 +1,221 @@
+.admin-dashboard-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    gap: 20px;
+    padding: 70px;
+}
+
+form {
+    width: 400px;
+    border: solid 1px #ced4da;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.manage-rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-content-make-rule {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-content-make-rule h2 {
+    margin-bottom: 10px;
+}
+
+.form-content-make-rule div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content-make-rule input {
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.form-content-make-rule select {
+    width: 244px;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.form-content-delete-rule {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-content-delete-rule h2 {
+    margin-bottom: 10px;
+}
+
+.form-content-delete-rule div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content-delete-rule input {
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.form-content-delete-rule select {
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.manage-users {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.form-content-assign-user-rule {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-content-assign-user-rule h2 {
+    margin-bottom: 10px;
+}
+
+.form-content-assign-user-rule div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content-assign-user-rule input {
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.form-content-assign-user-rule select {
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.form-content-remove-user-rule {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-content-remove-user-rule h2 {
+    margin-bottom: 10px;
+}
+
+.form-content-remove-user-rule div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content-remove-user-rule input {
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.form-content-remove-user-rule select {
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.form-content-manage-products {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.form-content-manage-products h2 {
+    margin-bottom: 10px;
+}
+
+.form-content-manage-products div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content-manage-products input {
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+.form-content-manage-products select {
+    width: 244px;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
+form button {
+    padding: 5px 10px;
+    margin: 0 0 10px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: rgb(209, 136, 0);
+    color: white;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+}

@@ -2,8 +2,10 @@
 @extends('layout/website-layout')
 @section('title', 'Highlights')
 
-@component('components/header')
-@endcomponent
+@include('components/header')
+@if(auth()->check() && auth()->user()->hasRule('admin'))
+    @include('components/admin-header')
+@endif
 
 @section('content')
     <h1>Highlights</h1>
