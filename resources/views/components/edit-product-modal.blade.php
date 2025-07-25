@@ -4,7 +4,7 @@
 @section('modal-title', 'Edit Product')
 
 @section('modal-body')
-    <div class="edit-product-blocks">
+    <div id="editProductModal" class="edit-product-blocks">
         <div class="first-block">
             <form action="" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -68,6 +68,7 @@
                     </div>
                 </div>
                 <button type="submit">Save</button>
+                <button id="closeEditModalBtn">Close</button>
             </form>
         </div>
         <div class="second-block">
