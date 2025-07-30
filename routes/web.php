@@ -10,10 +10,13 @@ use App\Http\Controllers\MyProductsController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\HighlightController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductDetailsController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/home', [HomeController::class, 'index']);
+
+Route::get('/category/{name}', [CategoryController::class, 'index'])->name('product-category.index');
 
 Route::get('/product/{slug}', [ProductDetailsController::class, 'index'])->name('product-details.index');
 

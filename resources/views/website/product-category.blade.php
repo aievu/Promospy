@@ -1,35 +1,16 @@
-@vite(['resources/css/website/home.css'])
+@vite('resources/css/website/product-category.css')
 @extends('layout/website-layout')
-@section('title', 'Home')
+@section('title', 'Product Category')
 
 @include('components/header')
-@if(auth()->check() && auth()->user()->hasRule('admin'))
-    @include('components/admin-header')
-@endif
 
 @section('content')
-    <h1>Welcome to the Promospy's home page</h1>
-    <p>This is your best website for sales.</p>
-    <div class="home-content">
-        <div class="home-search">
-            <form>
-                @csrf
-                <input type="text" placeholder="Type what do you looking-for...">
-                <button class="header-search-button" type="submit">Search</button>
-            </form>
-        </div>
-        <div class="home-categories">
-            @forelse ($categories as $category)
-                <a href="{{ route('product-category.index', $category->name)}}" class="home-category">
-                    <p class="home-label-category">{!! $category->category_label !!}</p>
-                </a>
-            @empty
-                <p>There are no categories!</p>
-            @endforelse
-        </div>
+    <h1>This is the {{ $category->name}} Category</h1>
+    <p>{{ $category->description }}</p>
+    <div class="product-category-content">
         <div class="product-content">
             @forelse ($products as $product)
-                <div style="opacity: 20%;" class="product-card">
+                <div style="opacity: 50%;" class="product-card">
                     <div class="product-card-top">
                         <h3>{{ $product->name }}</h3>
                         <form action="{{ route('favorites.toggle', $product->id) }}" method="POST">
@@ -75,7 +56,7 @@
                     </div>
                 </div>
             @empty
-                <p>No products publish yet.</p>
+                <p>No products for this category publish yet.</p>
             @endforelse
         </div>
     </div>

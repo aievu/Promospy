@@ -89,12 +89,16 @@
                     </div>
                     <div class="product-card-body">
                         <div class="category" id="preview-category"></div>
-                        <img id="preview-image" src="" alt="Product Name">
+                        <a class="product-card-details-link">
+                            <div>
+                                <img id="preview-image" src="" alt="Product Name">
+                            </div>
+                        </a>
                         <div class="price-buy">
                             <p id="preview-price" class="price"></p>
                             <a class="buy-button">Buy Now</a>
                         </div>
-                        <p class="more-details">Click to view more details</p>
+                        <a class="product-card-details-link-button"><p class="more-details">Click to view more details</p></a>
                     </div>
                     <div class="product-card-footer">
                         <div class="product-card-profile">
