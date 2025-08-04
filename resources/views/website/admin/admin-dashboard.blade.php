@@ -9,62 +9,115 @@
     <h1>Admin Dashboard</h1>
     <div class="admin-dashboard-content">
         <div class="manage-rules">
-            <form action="">
-                <div class="form-content-make-rule">
+            <form action="{{ route('admin-dashboard.create-rule') }}" method="POST">
+                @if (session('create-rule-success'))
+                    <div style="color: green; margin-top: 10px;">
+                        {{ session('create-rule-success') }}
+                    </div>
+                @endif
+                @csrf
+                <div class="form-content-create-rule">
                     <h2>Create rule</h2>
                     <div>
                         <label for="name">Name:</label>
                         <input type="text" name="name" maxlength="25" placeholder="Name of the rule">
+                        @if($errors && $errors->has('name'))
+                            <div style="color: red; margin-bottom: 10px;">
+                                <span class="error-messages">{{ $errors->first('name') }}</span>
+                            </div> 
+                        @endif
                         <label for="description">Description:</label>
                         <input type="text" name="description" maxlength="25" placeholder="Rule description">
+                        @if($errors && $errors->has('description'))
+                            <div style="color: red; margin-bottom: 10px;">
+                                <span class="error-messages">{{ $errors->first('description') }}</span>
+                            </div> 
+                        @endif
                     </div>
                 </div>
                 <button type="submit">Create</button>
             </form>
-            <form action="">
-                <div class="form-content-delete-rule">
-                    <h2>Delete rule</h2>
-                    <div>
-                        <label for="rule">Rule:</label>
-                        <select name="rule" id="rule">
-                            <option value="">Select a Rule</option>
-                            <option value="admin">Admin</option>
-                            <option value="">Moderator</option>
-                        </select>
+            <div class="rules">
+                <h2>Rules</h2>
+                @forelse ($rules as $rule)
+                    <div class="rules-content">
+                        <h3>{{ $rule->name }}</h3>
+                        <form action="" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit">
+                                <i id="product-card-actions-icon" class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </form>
                     </div>
-                </div>
-                <button type="submit">Delete</button>
-            </form>
-        </div>
+                @empty
+                    <p>There are no rules!</p>
+                @endforelse
+            </div>
+        </div
         <div class="manage-users">
-            <form action="">
+            <form action="{{ route('admin-dashboard.assign-user-rule') }}" method="POST">
+                @if (session('assign-rule-success'))
+                    <div style="color: green; margin-top: 10px;">
+                        {{ session('assign-rule-success') }}
+                    </div>
+                @endif
+                @csrf
                 <div class="form-content-assign-user-rule">
                     <h2>Assign rule to a user</h2>
                     <div>
                         <label for="email">User Email:</label>
                         <input type="text" name="email" placeholder="Email of the user">
+                        @if($errors && $errors->has('email'))
+                            <div style="color: red; margin-bottom: 10px;">
+                                <span class="error-messages">{{ $errors->first('email') }}</span>
+                            </div> 
+                        @endif
                         <label for="rule">Rule:</label>
                         <select name="rule" id="rule">
                             <option value="">Select a Rule</option>
-                            <option value="admin">Admin</option>
-                            <option value="">Moderator</option>
+                            @foreach ($rules as $rule)
+                                <option value="{{ $rule->name }}">{{ $rule->name }}</option>
+                            @endforeach
                         </select>
+                        @if($errors && $errors->has('rule'))
+                            <div style="color: red; margin-bottom: 10px;">
+                                <span class="error-messages">{{ $errors->first('rule') }}</span>
+                            </div> 
+                        @endif
                     </div>
                 </div>
                 <button type="submit">Assign</button>
             </form>
-            <form action="">
+            <form action="{{ route('admin-dashboard.remove-user-rule') }}" method="POST">
+                @if (session('remove-user-rule-success'))
+                    <div style="color: green; margin-top: 10px;">
+                        {{ session('remove-user-rule-success') }}
+                    </div>
+                @endif
+                @csrf
                 <div class="form-content-remove-user-rule">
                     <h2>Remove a user rule</h2>
                     <div>
-                        <label for="email">User Email:</label>
-                        <input type="text" name="email" placeholder="Email of the user">
-                        <label for="rule">Rule:</label>
-                        <select name="rule" id="rule">
+                        <label for="remove-user-rule-email">User Email:</label>
+                        <input type="text" name="remove-user-rule-email" placeholder="Email of the user">
+                        @if($errors && $errors->has('remove-user-rule-email'))
+                            <div style="color: red; margin-bottom: 10px;">
+                                <span class="error-messages">{{ $errors->first('remove-user-rule-email') }}</span>
+                            </div> 
+                        @endif
+                        <label for="remove-user-rule-rule">Rule:</label>
+                        <select name="remove-user-rule-rule" id="rule">
                             <option value="">Select a Rule</option>
-                            <option value="admin">Admin</option>
-                            <option value="">Moderator</option>
+                            @foreach ($rules as $rule)
+                                <option value="{{ $rule->name }}">{{ $rule->name }}</option>
+                            @endforeach
                         </select>
+                        @if($errors && $errors->has('remove-user-rule-rule'))
+                            <div style="color: red; margin-bottom: 10px;">
+                                <span class="error-messages">{{ $errors->first('remove-user-rule-rule') }}</span>
+                            </div> 
+                        @endif
                     </div>
                 </div>
                 <button type="submit">Remove</button>
@@ -103,7 +156,7 @@
                         </select>
                     </div>
                 </div>
-                <button type="submit">Create</button>
+                <button type="submit">Delete</button>
             </form>
         </div>
     </div>

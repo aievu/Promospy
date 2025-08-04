@@ -24,7 +24,7 @@ form {
     gap: 20px;
 }
 
-.form-content-make-rule {
+.form-content-create-rule {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -33,17 +33,17 @@ form {
     padding: 20px;
 }
 
-.form-content-make-rule h2 {
+.form-content-create-rule h2 {
     margin-bottom: 10px;
 }
 
-.form-content-make-rule div {
+.form-content-create-rule div {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.form-content-make-rule input {
+.form-content-create-rule input {
     padding: 5px;
     margin: 10px 0;
     border: 1px solid #ced4da;
@@ -51,13 +51,28 @@ form {
     font-size: 1.2em;
 }
 
-.form-content-make-rule select {
+.form-content-create-rule select {
     width: 244px;
     padding: 5px;
     margin: 10px 0;
     border: 1px solid #ced4da;
     border-radius: 4px;
     font-size: 1.2em;
+}
+
+.rules {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.rules-content{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .form-content-delete-rule {

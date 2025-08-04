@@ -55,11 +55,29 @@ class User extends Authenticatable
 
     public function rules()
     {
-        return $this->belongsToMany(Rule::class, 'user_rules'); // pivot table to connect users and rules
+        return $this->belongsToMany(Rule::class, 'user_rules')->withTimestamps(); // pivot table to connect users and rules
     }
 
     public function hasRule($ruleName)
     {
         return $this->rules()->where('name', $ruleName)->exists();
+    }
+
+    public function assignUserRule($ruleName)
+    {
+        $rule = Rule::where('name', $ruleName)->first();
+
+        if($rule) {
+            $this->rules()->attach($rule->id);
+        }
+    }
+
+    public function removeUserRule($ruleName)
+    {
+        $rule = Rule::where('name', $ruleName)->first();
+
+        if($rule) {
+            $this->rules()->detach($rule->id);
+        }
     }
 }
