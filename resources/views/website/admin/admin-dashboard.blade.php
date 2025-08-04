@@ -14,9 +14,9 @@
                     <h2>Create rule</h2>
                     <div>
                         <label for="name">Name:</label>
-                        <input type="text" name="name" placeholder="Name of the rule">
+                        <input type="text" name="name" maxlength="25" placeholder="Name of the rule">
                         <label for="description">Description:</label>
-                        <input type="text" name="description" placeholder="Rule description">
+                        <input type="text" name="description" maxlength="25" placeholder="Rule description">
                     </div>
                 </div>
                 <button type="submit">Create</button>
@@ -70,15 +70,41 @@
                 <button type="submit">Remove</button>
             </form>
         </div>
-        <form style="opacity: 0.3" action="">
-            <div class="form-content-manage-products">
-                <h2>Manage products</h2>
-                <div>
-                    <label for="product">Product ID:</label>
-                    <input type="text" name="product" placeholder="Search by product ID">
+        <div class="manage-products">
+            <form style="opacity: 0.3" action="">
+                <div class="form-content-manage-products">
+                    <h2>Manage products</h2>
+                    <div>
+                        <label for="product">Product ID:</label>
+                        <input type="text" name="product" placeholder="Search by product ID">
+                    </div>
                 </div>
-            </div>
-            <button type="submit">Search</button>
-        </form>
+                <button type="submit">Search</button>
+            </form>
+            <form style="opacity: 0.3" action="">
+                <div class="form-content-manage-products">
+                    <h2>Create category</h2>
+                    <div>
+                        <label for="category-name">Name:</label>
+                        <input type="text" name="category-name" maxlength="25" placeholder="Name of the category">
+                    </div>
+                </div>
+                <button type="submit">Create</button>
+            </form>
+            <form style="opacity: 0.3" action="">
+                <div class="form-content-manage-products">
+                    <h2>Delete category</h2>
+                    <div>
+                        <label for="category">Category:</label>
+                        <select name="category" id="category">
+                            <option value="">Select a Rule</option>
+                            <option value="">Eletronic</option>
+                            <option value="">Fashion</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit">Create</button>
+            </form>
+        </div>
     </div>
 @endsection

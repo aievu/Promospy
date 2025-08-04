@@ -29,7 +29,7 @@
         </div>
         <div class="product-content">
             @forelse ($products as $product)
-                <div style="opacity: 20%;" class="product-card">
+                <div class="product-card">
                     <div class="product-card-top">
                         <h3>{{ $product->name }}</h3>
                         <form action="{{ route('favorites.toggle', $product->id) }}" method="POST">
