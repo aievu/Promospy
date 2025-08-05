@@ -39,7 +39,7 @@ Route::middleware('authenticated')->group(function() {
 Route::middleware('admin')->group(function() {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin-dashboard.index');
     Route::post('/admin/dashboard/createRule', [AdminController::class, 'createRule'])->name('admin-dashboard.create-rule');
-    Route::delete('/admin/dashboard/deleteRule', [AdminController::class, 'deleteRule'])->name('admin-dashboard.delete-rule');
+    Route::delete('/admin/dashboard/deleteRule/{rule}', [AdminController::class, 'deleteRule'])->name('admin-dashboard.delete-rule');
     Route::post('/admin/dashboard/assignUserRule', [AdminController::class, 'assignUserRule'])->name('admin-dashboard.assign-user-rule');
     Route::post('/admin/dashboard/removeUserRule', [AdminController::class, 'removeUserRule'])->name('admin-dashboard.remove-user-rule');
 

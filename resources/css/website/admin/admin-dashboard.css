@@ -6,7 +6,14 @@
     padding: 70px;
 }
 
-form {
+.manage-rules {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.manage-rules-form {
     width: 400px;
     border: solid 1px #ced4da;
     border-radius: 4px;
@@ -15,13 +22,6 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
-
-.manage-rules {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
 }
 
 .form-content-create-rule {
@@ -73,6 +73,7 @@ form {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .form-content-delete-rule {
@@ -115,6 +116,17 @@ form {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+
+.manage-users-form {
+    width: 400px;
+    border: solid 1px #ced4da;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .form-content-assign-user-rule {
@@ -187,6 +199,17 @@ form {
     font-size: 1.2em;
 }
 
+.manage-products-form {
+    width: 400px;
+    border: solid 1px #ced4da;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .form-content-manage-products {
     width: 100%;
     display: flex;
@@ -215,7 +238,6 @@ form {
 }
 
 .form-content-manage-products select {
-    width: 244px;
     padding: 5px;
     margin: 10px 0;
     border: 1px solid #ced4da;

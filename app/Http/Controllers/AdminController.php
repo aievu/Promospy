@@ -28,18 +28,12 @@ class AdminController extends Controller
         return redirect()->route('admin-dashboard.index')->with('create-rule-success', 'The rule has been created');
     }
 
-    public function deleteRule(Request $request)
+    public function deleteRule(Rule $rule)
     {
-        $data = $request->validate([
-            'rule' => 'required',
-        ]);
-
-        $rule = Rule::where('name', $data['rule'])->first();
-
         if(!$rule) {
-            return redirect()->back()->with('error', 'Rule not found');
+            return redirect()->back()->with('delete-rule-error', 'This rule does not exist!');
         }
-
+        
         $rule->delete();
 
         return redirect()->route('admin-dashboard.index')->with('delete-rule-success', 'The rule has been deleted');
@@ -73,8 +67,10 @@ class AdminController extends Controller
             'remove-user-rule-email' => 'required|email|max:100',
             'remove-user-rule-rule' => 'required',
         ], [
-            'remove-user-rule-email' => 'The email field is required.',
-            'remove-user-rule-rule' => 'The rule field is required.',
+            'remove-user-rule-email.required' => 'The email field is required.',
+            'remove-user-rule-email.email' => 'The email field must be a valid email address.',
+            'remove-user-rule-email.max' => 'The email field must not be greater than 10 characters.',
+            'remove-user-rule-rule.required' => 'The rule field is required.',
         ]);
 
         $user = User::where('email', $data['remove-user-rule-email'])->first();

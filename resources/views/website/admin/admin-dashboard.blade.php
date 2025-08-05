@@ -9,7 +9,7 @@
     <h1>Admin Dashboard</h1>
     <div class="admin-dashboard-content">
         <div class="manage-rules">
-            <form action="{{ route('admin-dashboard.create-rule') }}" method="POST">
+            <form class="manage-rules-form" action="{{ route('admin-dashboard.create-rule') }}" method="POST">
                 @if (session('create-rule-success'))
                     <div style="color: green; margin-top: 10px;">
                         {{ session('create-rule-success') }}
@@ -38,11 +38,16 @@
                 <button type="submit">Create</button>
             </form>
             <div class="rules">
+                @if (session('delete-rule-success'))
+                    <div style="color: green; margin-top: 10px;">
+                        {{ session('delete-rule-success') }}
+                    </div>
+                @endif
                 <h2>Rules</h2>
                 @forelse ($rules as $rule)
                     <div class="rules-content">
                         <h3>{{ $rule->name }}</h3>
-                        <form action="" method="POST">
+                        <form action="{{ route('admin-dashboard.delete-rule', $rule) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit">
@@ -54,9 +59,9 @@
                     <p>There are no rules!</p>
                 @endforelse
             </div>
-        </div
+        </div>
         <div class="manage-users">
-            <form action="{{ route('admin-dashboard.assign-user-rule') }}" method="POST">
+            <form class="manage-users-form" action="{{ route('admin-dashboard.assign-user-rule') }}" method="POST">
                 @if (session('assign-rule-success'))
                     <div style="color: green; margin-top: 10px;">
                         {{ session('assign-rule-success') }}
@@ -67,7 +72,7 @@
                     <h2>Assign rule to a user</h2>
                     <div>
                         <label for="email">User Email:</label>
-                        <input type="text" name="email" placeholder="Email of the user">
+                        <input type="text" name="email" maxlength="100" placeholder="Email of the user">
                         @if($errors && $errors->has('email'))
                             <div style="color: red; margin-bottom: 10px;">
                                 <span class="error-messages">{{ $errors->first('email') }}</span>
@@ -89,7 +94,7 @@
                 </div>
                 <button type="submit">Assign</button>
             </form>
-            <form action="{{ route('admin-dashboard.remove-user-rule') }}" method="POST">
+            <form class="manage-users-form" action="{{ route('admin-dashboard.remove-user-rule') }}" method="POST">
                 @if (session('remove-user-rule-success'))
                     <div style="color: green; margin-top: 10px;">
                         {{ session('remove-user-rule-success') }}
@@ -100,7 +105,7 @@
                     <h2>Remove a user rule</h2>
                     <div>
                         <label for="remove-user-rule-email">User Email:</label>
-                        <input type="text" name="remove-user-rule-email" placeholder="Email of the user">
+                        <input type="text" name="remove-user-rule-email" maxlength="100" placeholder="Email of the user">
                         @if($errors && $errors->has('remove-user-rule-email'))
                             <div style="color: red; margin-bottom: 10px;">
                                 <span class="error-messages">{{ $errors->first('remove-user-rule-email') }}</span>
@@ -124,7 +129,7 @@
             </form>
         </div>
         <div class="manage-products">
-            <form style="opacity: 0.3" action="">
+            <form class="manage-products-form" style="opacity: 0.3" action="">
                 <div class="form-content-manage-products">
                     <h2>Manage products</h2>
                     <div>
@@ -134,7 +139,7 @@
                 </div>
                 <button type="submit">Search</button>
             </form>
-            <form style="opacity: 0.3" action="">
+            <form class="manage-products-form" style="opacity: 0.3" action="">
                 <div class="form-content-manage-products">
                     <h2>Create category</h2>
                     <div>
@@ -144,7 +149,7 @@
                 </div>
                 <button type="submit">Create</button>
             </form>
-            <form style="opacity: 0.3" action="">
+            <form class="manage-products-form" style="opacity: 0.3" action="">
                 <div class="form-content-manage-products">
                     <h2>Delete category</h2>
                     <div>
