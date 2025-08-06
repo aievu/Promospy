@@ -1,6 +1,6 @@
 @vite(['resources/css/website/publish.css','resources/js/website/publish.js'])
 @extends('layout/login-register-layout')
-@section('title', 'Publish')
+@section('title', 'Promospy - Publish')
 
 @section('content')
 <a href="/"><-- Go Back</a>

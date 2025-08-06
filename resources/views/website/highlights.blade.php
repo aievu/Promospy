@@ -1,6 +1,6 @@
 @vite('resources/css/website/highlights.css')
 @extends('layout/website-layout')
-@section('title', 'Highlights')
+@section('title', 'Promospy - Highlights')
 
 @include('components/header')
 @if(auth()->check() && auth()->user()->hasRule('admin'))

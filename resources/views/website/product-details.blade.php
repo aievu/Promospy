@@ -1,6 +1,6 @@
 @vite('resources/css/website/product-details.css')
 @extends('layout/website-layout')
-@section('title', 'Product Details')
+@section('title', 'Promospy - ' . $product->name)
 
 @include('components/header')
 @if(auth()->check() && auth()->user()->hasRule('admin'))
@@ -11,18 +11,47 @@
     <div class="product-details-content">
         <div class="product-details">
             <div class="product-main">
-                <h2>{{ $product->name}}</h2>
+                <div class="product-top">
+                    <h2>{{ $product->name}}</h2>
+                    <div class="product-category" style="background-color:{{ $product->category_color}};">
+                        <p class="label-category">{!! $product->category_label!!}</p>
+                    </div>
+                </div>
+                <p>{{ $product->created_at->format('d/m/Y') }}</p>
                 <div class="product-informations">
                     <div class="first-block">
-                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                        <img style="opacity: 0.2" src="{{ $product->image_url }}" alt="{{ $product->name }}">
                     </div>
                     <div class="second-block">
-                        <p>$ {{ number_format($product->price, 2) }}</p>
-                        <a href="{{ $product->sale_url }}" target="_blank">Buy Now</a>
-                        <div>
-                            <i class="fa-regular fa-user"></i><p>{{ $product->user->first_name }}</p>
+                        <div class="product-body">
+                            @if(session('error'))
+                                <div style="color: red; margin-bottom: 10px;">
+                                    <span class="error-messages">{{ session('error') }}</span>
+                                </div>
+                            @endif
+                            <div class="comments">
+                                @forelse ($product->comments as $comment)
+                                    <p><i id="product-profile-icon" class="fa-regular fa-user"></i>{{ $comment->comment }}</p>
+                                @empty
+                                    <p>No comments on this product yet.</p>
+                                @endforelse
+                                <form action="{{ route('product-details.comment', ['slug' => $product->slug, 'productId' => $product->id]) }}" method="POST">
+                                    @csrf
+                                    <textarea name="comment" rows="3" placeholder="Write a comment..."></textarea>
+                                    <button type="submit"><i class="fa-regular fa-circle-right"></i></button>
+                                </form>
+                            </div>
                         </div>
-                        <p>{{ $product->created_at->format('d/m/Y') }}</p>
+                        <div class="product-price-buy">
+                            <p>$ {{ number_format($product->price, 2) }}</p>
+                            <a class="product-buy" href="{{ $product->sale_url }}" target="_blank">Buy Now</a>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-profile">
+                                <i id="product-profile-icon" class="fa-regular fa-user"></i><p>{{ $product->user->first_name }}</p>
+                            </div>
+                            <p>Joined: {{ $product->user->created_at->format('M/Y') }}</p>
+                        </div>
                     </div>
                 </div>
             </div>

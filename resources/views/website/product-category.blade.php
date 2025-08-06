@@ -1,6 +1,6 @@
 @vite('resources/css/website/product-category.css')
 @extends('layout/website-layout')
-@section('title', 'Product Category')
+@section('title', 'Promospy - Product Category')
 
 @include('components/header')
 

@@ -1,6 +1,6 @@
 @vite(['resources/css/website/home.css'])
 @extends('layout/website-layout')
-@section('title', 'Home')
+@section('title', 'Promospy - Home')
 
 @include('components/header')
 @if(auth()->check() && auth()->user()->hasRule('admin'))

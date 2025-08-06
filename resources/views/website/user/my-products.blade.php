@@ -1,6 +1,6 @@
 @vite(['resources/css/website/user/my-products.css', 'resources/js/website/user/my-products.js'])
 @extends('layout/website-layout')
-@section('title', 'My Products')
+@section('title', 'Promospy - My Products')
 
 @include('components/header')
 @if(auth()->check() && auth()->user()->hasRule('admin'))

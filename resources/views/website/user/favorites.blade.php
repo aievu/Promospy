@@ -1,6 +1,6 @@
 @vite('resources/css/website/user/favorites.css')
 @extends('layout/website-layout')
-@section('title', 'Favorites')
+@section('title', 'Promospy - Favorites')
 
 @include('components/header')
 @if(auth()->check() && auth()->user()->hasRule('admin'))

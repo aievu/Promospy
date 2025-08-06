@@ -19,6 +19,7 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/category/{name}', [CategoryController::class, 'index'])->name('product-category.index');
 
 Route::get('/product/{slug}', [ProductDetailsController::class, 'index'])->name('product-details.index');
+Route::post('/product/{slug}/comment', [ProductDetailsController::class, 'comment'])->name('product-details.comment');
 
 Route::get('/highlights', [HighlightController::class, 'index'])->name('highlights.index');
 

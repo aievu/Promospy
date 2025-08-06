@@ -1,6 +1,6 @@
 @vite(['resources/css/website/user/profile.css', 'resources/js/website/user/profile.js'])
 @extends('layout/website-layout')
-@section('title', 'Profile')
+@section('title', 'Promospy - Profile')
 
 @section('content')
     <a href="/"><-- Go Back</a>

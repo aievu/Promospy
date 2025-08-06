@@ -1,6 +1,6 @@
 @vite('resources/css/website/user/register.css')
 @extends('layout/login-register-layout')
-@section('title', 'Resgister')
+@section('title', 'Promospy - Resgister')
 
 @section('content')
     <a href="/"><-- Go Back</a>
