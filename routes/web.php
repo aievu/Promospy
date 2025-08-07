@@ -19,13 +19,14 @@ Route::get('/home', [HomeController::class, 'index']);
 Route::get('/category/{name}', [CategoryController::class, 'index'])->name('product-category.index');
 
 Route::get('/product/{slug}', [ProductDetailsController::class, 'index'])->name('product-details.index');
-Route::post('/product/{slug}/comment', [ProductDetailsController::class, 'comment'])->name('product-details.comment');
 
 Route::get('/highlights', [HighlightController::class, 'index'])->name('highlights.index');
 
 Route::middleware('authenticated')->group(function() {
     Route::get('/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::delete('/profile/delete', [ProfileController::class, 'delete'])->name('profile.delete');
+
+    Route::post('/product/{slug}/comment', [ProductDetailsController::class, 'comment'])->name('product-details.comment');
 
     Route::get('/my-products', [MyProductsController::class, 'index'])->name('my-products.index');
     Route::delete('my-products/delete/{product}', [MyProductsController::class, 'delete'])->name('my-products.delete');

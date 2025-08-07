@@ -10,7 +10,7 @@ class ProductDetailsController extends Controller
 {
     public function index($slug)
     {
-        $product = Product::where('slug', $slug)->with('comments.user')->firstOrFail();
+        $product = Product::where('slug', $slug)->with('lastComments.user')->firstOrFail();
 
         return view('website/product-details', compact('product'));
     }
@@ -21,7 +21,7 @@ class ProductDetailsController extends Controller
             'comment' => 'required|max:150',
         ]);
 
-        $product = Product::where('slug', $slug)->first();
+        $product = Product::where('slug', $slug)->firstOrFail();
 
         $comment['product_id'] = $product->id;
         $comment['user_id'] = auth()->id();

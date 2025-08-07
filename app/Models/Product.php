@@ -23,12 +23,17 @@ class Product extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function lastComments(): HasMany
+    {
+        return $this->hasMany(Comment::class)->latest()->take(3);
     }
 
     public function highlight()

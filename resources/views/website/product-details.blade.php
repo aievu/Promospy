@@ -13,14 +13,26 @@
             <div class="product-main">
                 <div class="product-top">
                     <h2>{{ $product->name}}</h2>
-                    <div class="product-category" style="background-color:{{ $product->category_color}};">
-                        <p class="label-category">{!! $product->category_label!!}</p>
+                    <div class="product-top-right">
+                        <div class="product-category" style="background-color:{{ $product->category_color}};">
+                            <p class="label-category">{!! $product->category_label!!}</p>
+                        </div>
+                        <form action="{{ route('favorites.toggle', $product->id) }}" method="POST">
+                            @csrf
+                            <button style="background: none; border: none; cursor: pointer;">
+                                @if(auth()->check() && auth()->user()->favorites->contains($product))
+                                    <i id="product-card-favorite-icon" class="fa-solid fa-heart"></i>
+                                @else
+                                    <i id="product-card-favorite-icon" class="fa-regular fa-heart"></i>
+                                @endif
+                            </button>
+                        </form>
                     </div>
                 </div>
                 <p>{{ $product->created_at->format('d/m/Y') }}</p>
                 <div class="product-informations">
                     <div class="first-block">
-                        <img style="opacity: 0.2" src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
                     </div>
                     <div class="second-block">
                         <div class="product-body">
@@ -30,14 +42,14 @@
                                 </div>
                             @endif
                             <div class="comments">
-                                @forelse ($product->comments as $comment)
-                                    <p><i id="product-profile-icon" class="fa-regular fa-user"></i>{{ $comment->comment }}</p>
+                                @forelse ($product->lastComments as $comment)
+                                    <p><i id="product-profile-icon" class="fa-regular fa-user"></i><span style="color: rgb(209, 136, 0)">{{ $comment->user->first_name }}:</span>{{ $comment->comment }}</p>
                                 @empty
                                     <p>No comments on this product yet.</p>
                                 @endforelse
                                 <form action="{{ route('product-details.comment', ['slug' => $product->slug, 'productId' => $product->id]) }}" method="POST">
                                     @csrf
-                                    <textarea name="comment" rows="3" placeholder="Write a comment..."></textarea>
+                                    <textarea name="comment" rows="2" maxlength="30" placeholder="Write a comment..."></textarea>
                                     <button type="submit"><i class="fa-regular fa-circle-right"></i></button>
                                 </form>
                             </div>
