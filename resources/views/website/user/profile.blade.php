@@ -20,11 +20,6 @@
             @else
                 <p>You have no products yet. <br> <a href="/publish">Make a publication </a></p>
             @endisset
-            @isset($productsFavoritedCount)
-                <p>Favorited: {{ $productsFavoritedCount }}</p>
-            @else
-                <p>You don't have any favorites yet.</p>
-            @endisset
         </div>
         <br>
         <form action="{{ route('profile.delete') }}" method="POST">

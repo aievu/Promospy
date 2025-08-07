@@ -12,7 +12,9 @@ class ProductDetailsController extends Controller
     {
         $product = Product::where('slug', $slug)->with('lastComments.user')->firstOrFail();
 
-        return view('website/product-details', compact('product'));
+        $relatedProducts = Product::where('category_id', $product->category_id)->where('id', '!=', $product->id)->take(3)->get();
+
+        return view('website/product-details', compact('product', 'relatedProducts'));
     }
 
     public function comment(Request $request, $slug)
@@ -29,5 +31,12 @@ class ProductDetailsController extends Controller
         Comment::create($comment);
 
         return redirect()->back()->with('success', 'Comment posted!');
+    }
+
+    public function edit($product)
+    {
+        $this->authorize('view', $product);
+
+        return redirect()->back();
     }
 }

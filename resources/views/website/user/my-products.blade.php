@@ -31,7 +31,6 @@
                             <button id="openEditModalBtn" class="product-card-actions edit">
                                 <i id="product-card-actions-icon" class="fa-regular fa-edit"></i><p>Edit</p>
                             </button>
-                        </form>
                         <form action="{{ route('my-products.delete', $product) }}" method="POST">
                             @csrf
                             @method('DELETE')
@@ -41,7 +40,7 @@
                         </form>
                     </div>
                 </div>
-                @include('components/edit-product-modal')
+                {{-- @include('components/edit-product-modal') --}}
             @empty
                 <p>You have no products yet. <br> <a href="/publish">Make a publication </a></p>
             @endforelse
