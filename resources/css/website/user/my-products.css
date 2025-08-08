@@ -42,6 +42,28 @@
     cursor: pointer;
 }
 
+.product-card-details-link-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 25px;
+    color: inherit;
+    border: solid 1px black;
+    border-radius: 20px;
+    margin: auto;
+    padding: 0 10px;
+    -webkit-transition: all 0.3s ease;
+}
+
+.product-card-details-link-button:hover {
+    font-weight: 600;
+}
+
+.product-card-details-link-button p {
+    font-size: 0.8em;
+}
+
 .product-card-top {
     display: flex;
     width: 100%;

@@ -49,6 +49,14 @@
                             </div> 
                         @endif
 
+                        <label for="sold-by">Sold By:</label>
+                        <input class="sold-by-input" type="text" name="sold-by" maxlength="25" value="{{ old('sold-by') }}">
+                        @if($errors && $errors->has('sold-by'))
+                            <div style="color: red; margin-bottom: 10px;">
+                                <span class="error-messages">{{ $errors->first('sold-by') }}</span>
+                            </div> 
+                        @endif
+
                         <div class="price-category">
                             <div>
                                 <label for="price">Price:</label>

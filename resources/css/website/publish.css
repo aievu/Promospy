@@ -88,6 +88,15 @@ form {
     font-size: 1.2em;
 }
 
+.sold-by-input {
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 1.2em;
+}
+
 form button {
     padding: 5px 10px;
     margin: 0 0 10px 0;

@@ -13,9 +13,11 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
+        $myProducts = Product::where('user_id', $user->id)->get();
+
         $productsPostedCount = Product::where('user_id', $user->id)->count();
 
-        return view('website/user/profile', compact('productsPostedCount'));
+        return view('website/user/profile', compact('productsPostedCount', 'myProducts'));
     }
 
     public function delete(Request $request)

@@ -27,9 +27,11 @@ class PublicationController extends Controller
             'image-url' => 'required|url|max:500',
             'price' => 'required|numeric|min:0.01|max:999999.99',
             'category' => 'required',
+            'sold-by' => 'required|string|max:25',
         ], [
             'sale-url.required' => 'The Sale URL field is required.',
             'image-url.required' => 'The Image URL field is required.',
+            'sold-by.required' => 'The Sold By field is required',
         ]);
 
         $product['slug'] = Str::slug($product['name']);
@@ -37,6 +39,7 @@ class PublicationController extends Controller
         $product['image_url'] = $request->input('image-url');
         $product['user_id'] = auth()->id();
         $product['category_id'] = $request->input('category');
+        $product['sold_by'] = $request->input('sold-by');
 
         Product::create($product);
 

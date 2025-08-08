@@ -13,15 +13,31 @@
             <p>Joined: {{ auth()->user()->created_at->format('d/m/Y') }}</p>
         </div>
         <div class="my-products">
-            <br>
-            <h3>Products</h3>
-            @isset($productsPostedCount)
-                <p>Posted: {{ $productsPostedCount }}</p>
-            @else
-                <p>You have no products yet. <br> <a href="/publish">Make a publication </a></p>
-            @endisset
+            <div class="my-products-top">
+                <h3>Products</h3>
+                @isset($productsPostedCount)
+                    <p>Posted: {{ $productsPostedCount }}</p>
+                @endisset
+            </div>
+            <div class="product-content">
+                @forelse ($myProducts as $product)
+                    
+                        <div class="product-card">
+                            <a href="{{ route('product-details.index', $product->slug)}}">
+                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                            </a>
+                            <div class="product-informations">
+                                <p style="font-weight: bold">{{ $product->name }}</p>
+                                <p><span style="font-weight: bold">$ </span>{{ $product->price }}</p>
+                                <p><span style="font-weight: bold">Posted on: </span>{{ $product->created_at->format('d/m/Y') }}</p>
+                            </div>
+                        </div>
+                    
+                @empty
+                    <p>You have no products yet. <br> <a href="/publish">Make a publication </a></p>
+                @endforelse
+            </div>
         </div>
-        <br>
         <form action="{{ route('profile.delete') }}" method="POST">
             @csrf
             @method('DELETE')

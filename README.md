@@ -62,10 +62,10 @@ DB_PASSWORD=sua_senha
 php artisan key:generate
 ```
 
-5. Crie as tabelas no banco:
+5. Crie as tabelas e rode o seeder das categorias no banco:
 
 ```bash
-php artisan migrate
+php artisan migrate --seed
 ```
 
 6. Instale as dependências front-end e compile os assets:

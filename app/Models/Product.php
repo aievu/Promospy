@@ -19,7 +19,8 @@ class Product extends Model
         'image_url',
         'price',
         'user_id',
-        'category_id'
+        'category_id',
+        'sold_by'
     ];
 
     public function user()
@@ -46,7 +47,7 @@ class Product extends Model
     {
         return $this->hasMany(Favorite::class);
     }
-
+    
     public function getCategoryLabelAttribute(): String
     {
         return ProductCategoryEnum::fromValue($this->category_id)?->label() ?? 'Unknown';

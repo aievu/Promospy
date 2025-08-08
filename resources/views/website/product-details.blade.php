@@ -59,6 +59,7 @@
                                 <p>$ {{ number_format($product->price, 2) }}</p>
                                 <a class="product-buy" href="{{ $product->sale_url }}" target="_blank">Buy Now</a>
                             </div>
+                            <p style="font-size: 0.8em; opacity: 0.6;"><span><i class="fa-solid fa-shop" style="margin-right: 5px"></i>Sold by </span><span style="font-weight: bold">{{ $product->sold_by }}</span></p>
                         </div>
                         @can('view', $product)
                             <div class="product-owner-actions">
