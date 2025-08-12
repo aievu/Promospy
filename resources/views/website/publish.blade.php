@@ -10,26 +10,13 @@
         <div class="publish-blocks">
             <div class="first-block">
                 <form action="{{ route('publish.store') }}" method="POST" enctype="multipart/form-data">
-                    @if (session('success'))
-                        <div style="color: green; margin-top: 10px;">
-                            {{ session('success') }}
-                        </div>
-                    @endif
                     @csrf
-                    <div class="form-content">
+                    <div class="form-content-left">
                         <label for="name">Product Name:</label>
                         <input class="name-input" type="text" id="name" name="name" maxlength="30" value="{{ old('name') }}">
                         @if($errors && $errors->has('name'))
                             <div style="color: red; margin-bottom: 10px;">
                                 <span class="error-messages">{{ $errors->first('name') }}</span>
-                            </div> 
-                        @endif
-
-                        <label for="description">Description:</label>
-                        <textarea type="text" id="description" name="description" maxlength="140" rows="3">{{ old('description') }}</textarea>
-                        @if($errors && $errors->has('description'))
-                            <div style="color: red; margin-bottom: 10px;">
-                                <span class="error-messages">{{ $errors->first('description') }}</span>
                             </div> 
                         @endif
 
@@ -77,6 +64,7 @@
                                     <option value="3" {{ old('category') == 3 ? 'selected' : '' }}>Home and Decoration</option>
                                     <option value="4" {{ old('category') == 4 ? 'selected' : '' }}>Beauty and Self Care</option>
                                     <option value="5" {{ old('category') == 5 ? 'selected' : '' }}>Gift Card</option>
+                                    <option value="6" {{ old('category') == 6 ? 'selected' : '' }}>Sports</option>
                                 </select>
                                 @if($errors && $errors->has('category'))
                                     <div style="color: red; margin-bottom: 10px;">
@@ -86,7 +74,23 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit">Publish</button>
+                    <div class="form-content-right">
+                        <div>
+                            <label for="description">Description:</label>
+                            <textarea type="text" id="description" name="description" maxlength="240" rows="6">{{ old('description') }}</textarea>
+                            @if($errors && $errors->has('description'))
+                                <div style="color: red; margin-bottom: 10px;">
+                                    <span class="error-messages">{{ $errors->first('description') }}</span>
+                                </div> 
+                            @endif
+                        </div>
+                        @if (session('success'))
+                            <div style="color: green; margin-top: 10px;">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+                        <button type="submit">Publish</button>
+                    </div>
                 </form>
             </div>
             <div class="second-block">

@@ -24,6 +24,6 @@ class Category extends Model
     
     public function getCategoryLabelAttribute(): String
     {
-        return ProductCategoryEnum::fromValue($this->id)?->label() ?? 'Unknown';
+        return ProductCategoryEnum::fromValue($this->id)?->label() ?? '<i class="fa-regular fa-circle-question"></i>Unknown';
     }
 }

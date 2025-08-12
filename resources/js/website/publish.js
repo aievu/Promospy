@@ -35,6 +35,7 @@ const categoryMap = {
     '3': '<p class="label-category"><i class="fa-solid fa-house"></i>Home and Decoration</p>',
     '4': '<p class="label-category"><i class="fa-solid fa-face-smile-beam"></i>Beauty and Self Care</p>',
     '5': '<p class="label-category"><i class="fa-solid fa-gift"></i>Gift Card</p>',
+    '6': '<p class="label-category"><i class="fa-solid fa-football"></i>Sports</p>',
     'default': '<p class="label-category"><i class="fa-regular fa-circle-question"></i>Category</p>'
     }
 
@@ -44,6 +45,7 @@ const categoryColorMap = {
     '3': 'background-color: rgba(0, 209, 87, 0.5);',
     '4': 'background-color: rgba(73, 0, 209, 0.5);',
     '5': 'background-color: rgba(209, 0, 0, 0.5);',
+    '6': 'background-color: rgba(255, 51, 0, 0.5);',
     'default': 'background-color: rgba(128, 128, 128, 0.5);'
 }
 

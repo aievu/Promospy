@@ -19,6 +19,7 @@ class CategorySeeder extends Seeder
             'Home and Decoration',
             'Beauty and Self Care',
             'Gift Card',
+            'Sports',
         ];
 
         foreach($categories as $name) {

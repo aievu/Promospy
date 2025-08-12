@@ -9,6 +9,7 @@ enum ProductCategoryEnum: int
     case HOME_AND_DECORATION = 3;
     case BEAUTY_AND_SELF_CARE = 4;
     case GIFT_CARD = 5;
+    case SPORTS = 6;
 
     public function label(): string {
         return match ($this) {
@@ -16,7 +17,8 @@ enum ProductCategoryEnum: int
             self::FASHION => '<i class="fa-solid fa-shirt"></i>Fashion',
             self::HOME_AND_DECORATION => '<i class="fa-solid fa-house"></i>Home and Decoration',
             self::BEAUTY_AND_SELF_CARE => '<i class="fa-solid fa-face-smile-beam"></i>Beauty and Self Care',
-            self::GIFT_CARD => '<i class="fa-solid fa-gift"></i>Gift Card'
+            self::GIFT_CARD => '<i class="fa-solid fa-gift"></i>Gift Card',
+            self::SPORTS => '<i class="fa-solid fa-football"></i>Sports'
         };
     }
 
@@ -26,7 +28,8 @@ enum ProductCategoryEnum: int
             self::FASHION => 'rgba(175, 0, 53, 0.5)',
             self::HOME_AND_DECORATION => 'rgba(0, 168, 70, 0.5)',
             self::BEAUTY_AND_SELF_CARE => 'rgba(52, 0, 148, 0.5)',
-            self::GIFT_CARD => 'rgba(177, 0, 0, 0.5)'
+            self::GIFT_CARD => 'rgba(177, 0, 0, 0.5)',
+            self::SPORTS => 'rgba(255, 51, 0, 0.5)',
         };
     }
 

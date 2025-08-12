@@ -6,7 +6,7 @@ Promospy é um site de promoções colaborativo onde os usuários podem publicar
 
 - Registro e login de usuários
 - Publicação de produtos com:
-- Nome, descrição, preço, imagem, URL de compra e categoria
+- Nome, descrição, preço, imagem, URL de compra, loja vendedora e categoria
 - Visualização dos próprios produtos (editar/deletar)
 - Sistema de favoritos
 - Visualização de favoritos por usuário
@@ -62,7 +62,7 @@ DB_PASSWORD=sua_senha
 php artisan key:generate
 ```
 
-5. Crie as tabelas e rode o seeder das categorias no banco:
+5. Crie as tabelas e rode o seeder para cirar as categorias e o admin no banco:
 
 ```bash
 php artisan migrate --seed

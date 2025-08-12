@@ -15,21 +15,25 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        User::create([
+        $user = User::firstOrCreate([
+            'email' => 'admin@gmail.com',
+        ],
+        [
             'first_name' => 'Admin',
             'last_name' => '...',
-            'email' => 'admin@gmail.com',
             'password' => bcrypt('admin123'),
         ]);
 
-        Rule::create([
+        $rule = Rule::firstOrCreate([
             'name' => 'admin',
+        ],
+        [
             'description' => 'admin rule',
         ]);
 
-        UserRule::create([
-            'user_id' => 1,
-            'rule_id' => 1,
+        UserRule::firstOrCreate([
+            'user_id' => $user->id,
+            'rule_id' => $rule->id,
         ]);
     }
 }

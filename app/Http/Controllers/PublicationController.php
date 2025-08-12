@@ -22,7 +22,7 @@ class PublicationController extends Controller
 
         $product = $request->validate([
             'name' => 'required|string|max:30|min:3',
-            'description' => 'required|string|max:140|min:10',
+            'description' => 'required|string|max:240|min:10',
             'sale-url' => 'required|url|max:500',
             'image-url' => 'required|url|max:500',
             'price' => 'required|numeric|min:0.01|max:999999.99',
