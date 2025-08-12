@@ -31,12 +31,16 @@
                         <div class="category" style="background-color:{{ $product->category_color}};">
                             <p class="label-category">{!! $product->category_label!!}</p>
                         </div>
-                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                        <a class="product-card-details-link" href="{{ route('product-details.index', $product->slug) }}">
+                            <div>
+                                <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                            </div>
+                        </a>
                         <div class="price-buy">
                             <p class="price">$ {{ number_format($product->price, 2) }}</p>
                             <a href="{{ $product->sale_url }}" target="_blank" class="buy-button">Buy Now</a>
                         </div>
-                        <p class="more-details">Click to view more details</p>
+                        <a class="product-card-details-link-button" href="{{ route('product-details.index', $product->slug) }}"><p class="more-details">Click to view more details</p></a>
                     </div>
                     <div class="product-card-footer">
                         <div class="product-card-profile">

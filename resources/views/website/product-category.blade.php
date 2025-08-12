@@ -10,7 +10,7 @@
     <div class="product-category-content">
         <div class="product-content">
             @forelse ($products as $product)
-                <div style="opacity: 50%;" class="product-card">
+                <div class="product-card">
                     <div class="product-card-top">
                         <h3>{{ $product->name }}</h3>
                         <form action="{{ route('favorites.toggle', $product->id) }}" method="POST">
@@ -29,7 +29,7 @@
                             <p class="label-category">{!! $product->category_label!!}</p>
                         </div>
                         @can('delete', $product)
-                            <form class="product-card-admin-actions" action="{{ route('home.delete', $product) }}" method="POST">
+                            <form class="product-card-admin-actions" action="{{ route('admin.deleteProduct', $product) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="product-card-actions delete">

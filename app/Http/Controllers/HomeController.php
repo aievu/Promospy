@@ -19,13 +19,4 @@ class HomeController extends Controller
 
         return view('website/home', compact('products', 'categories'));
     }
-
-    public function delete(Product $product)
-    {
-        $this->authorize('delete', $product);
-
-        $product->delete();
-
-        return redirect()->route('home.index')->with('success', 'Product deleted successfully!');
-    }
 }

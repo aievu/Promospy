@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -13,11 +14,18 @@ class ProfileController extends Controller
     {
         $user = Auth::user();
 
-        $myProducts = Product::where('user_id', $user->id)->get();
+        $user->load([
+            'products',
+            'comments.product',
+        ]);
 
         $productsPostedCount = Product::where('user_id', $user->id)->count();
 
-        return view('website/user/profile', compact('productsPostedCount', 'myProducts'));
+        return view('website/user/profile', [
+            'productsPostedCount' => $productsPostedCount,
+            'myProducts' => $user->products,
+            'myComments' => $user->comments,
+        ]);
     }
 
     public function delete(Request $request)

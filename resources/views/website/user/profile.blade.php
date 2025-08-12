@@ -13,7 +13,7 @@
             <p>Joined: {{ auth()->user()->created_at->format('d/m/Y') }}</p>
         </div>
         <div class="my-products">
-            <div class="my-products-top">
+            <div class="my-products-header">
                 <h3>Products</h3>
                 @isset($productsPostedCount)
                     <p>Posted: {{ $productsPostedCount }}</p>
@@ -21,7 +21,6 @@
             </div>
             <div class="product-content">
                 @forelse ($myProducts as $product)
-                    
                         <div class="product-card">
                             <a href="{{ route('product-details.index', $product->slug)}}">
                                 <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
@@ -31,10 +30,27 @@
                                 <p><span style="font-weight: bold">$ </span>{{ $product->price }}</p>
                                 <p><span style="font-weight: bold">Posted on: </span>{{ $product->created_at->format('d/m/Y') }}</p>
                             </div>
-                        </div>
-                    
+                        </div>     
                 @empty
                     <p>You have no products yet. <br> <a href="/publish">Make a publication </a></p>
+                @endforelse
+            </div>
+        </div>
+        <div class="my-comments">
+            <div class="my-comments-header">
+                <h3>Comments</h3>
+                <p>Product Commented:</p>
+            </div>
+            <div class="comment-content">
+                @forelse ($myComments as $comment)
+                    <div class="comment-card">
+                        <div>
+                            {{ $comment->product->name}}
+                        </div>
+                        <p>{{ $comment->comment }}</p>
+                    </div>
+                @empty
+                    <p>You have no comments yet.</p>
                 @endforelse
             </div>
         </div>

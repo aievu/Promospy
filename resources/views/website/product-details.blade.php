@@ -27,12 +27,21 @@
                                 @endif
                             </button>
                         </form>
+                        @can('delete', $product)
+                            <form class="product-card-admin-actions" action="{{ route('admin.deleteProduct', $product) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="product-card-actions delete">
+                                    <i id="product-card-actions-icon" class="fa-regular fa-trash-can"></i>
+                                </button>
+                            </form>
+                        @endcan
                     </div>
                 </div>
                 <p>{{ $product->created_at->format('d/m/Y') }}</p>
                 <div class="product-informations">
                     <div class="first-block">
-                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                        <img style="opacity: 0.05" src="{{ $product->image_url }}" alt="{{ $product->name }}">
                     </div>
                     <div class="second-block">
                         <div class="product-reviews">
@@ -50,7 +59,12 @@
                                 <form action="{{ route('product-details.comment', ['slug' => $product->slug, 'productId' => $product->id]) }}" method="POST">
                                     @csrf
                                     <textarea name="comment" rows="2" maxlength="30" placeholder="Write a comment..."></textarea>
-                                    <button type="submit"><i class="fa-regular fa-circle-right"></i></button>
+                                    <div class="form-footer">
+                                        <div class="form-footer-left">
+                                            <a class="view-all-comments" href="">View all comments</a>
+                                        </div>
+                                        <button type="submit"><i class="fa-regular fa-circle-right"></i></button>
+                                    </div>    
                                 </form>
                             </div>
                         </div>

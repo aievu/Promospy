@@ -45,7 +45,7 @@ Route::middleware('admin')->group(function() {
     Route::post('/admin/dashboard/assignUserRule', [AdminController::class, 'assignUserRule'])->name('admin-dashboard.assign-user-rule');
     Route::post('/admin/dashboard/removeUserRule', [AdminController::class, 'removeUserRule'])->name('admin-dashboard.remove-user-rule');
 
-    Route::delete('/home/delete/{product}', [HomeController::class, 'delete'])->name('home.delete'); // Admin can delete any product on home page
+    Route::delete('/admin/delete/{product}', [AdminController::class, 'deleteProduct'])->name('admin.deleteProduct'); // Admin can delete any product
 });
 
 Route::middleware('guest')->group(function() {

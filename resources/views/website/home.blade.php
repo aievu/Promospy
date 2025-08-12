@@ -48,7 +48,7 @@
                             <p class="label-category">{!! $product->category_label!!}</p>
                         </div>
                         @can('delete', $product)
-                            <form class="product-card-admin-actions" action="{{ route('home.delete', $product) }}" method="POST">
+                            <form class="product-card-admin-actions" action="{{ route('admin.deleteProduct', $product) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="product-card-actions delete">

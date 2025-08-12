@@ -6,6 +6,7 @@ use App\Models\Rule;
 use App\Models\User;
 use App\Models\UserRule;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,15 @@ class AdminController extends Controller
         $rules = Rule::all();
 
         return view('website/admin/admin-dashboard', compact('rules'));
+    }
+
+    public function deleteProduct(Product $product)
+    {
+        $this->authorize('delete', $product);
+
+        $product->delete();
+
+        return redirect()->route('home.index')->with('success', 'Product deleted successfully!');
     }
 
     public function createRule(Request $request)
