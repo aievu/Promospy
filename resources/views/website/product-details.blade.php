@@ -41,7 +41,7 @@
                 <p>{{ $product->created_at->format('d/m/Y') }}</p>
                 <div class="product-informations">
                     <div class="first-block">
-                        <img style="opacity: 0.05" src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                        <img src="{{ $product->image_url }}" alt="{{ $product->name }}">
                     </div>
                     <div class="second-block">
                         <div class="product-reviews">

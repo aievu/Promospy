@@ -7,9 +7,13 @@ use App\Models\User;
 use App\Models\UserRule;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class AdminController extends Controller
 {
+
+    use AuthorizesRequests;
+    
     public function index()
     {
         $rules = Rule::all();
