@@ -29,7 +29,7 @@ Antes de começar, instale:
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/aievu/Promospy
+git clone https://github.com/aievu/Promospy.git
 cd promospy
 ```
 
