@@ -65,7 +65,7 @@
     gap: 10px;
 }
 
-.product-owner-actions button {
+.product-owner-actions .button {
     width: 200px;
     display: flex;
     align-items: center;

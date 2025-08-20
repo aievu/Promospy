@@ -27,8 +27,10 @@ Route::middleware('authenticated')->group(function() {
     Route::delete('/profile/delete', [ProfileController::class, 'delete'])->name('profile.delete');
 
     Route::post('/product/{slug}/comment', [ProductDetailsController::class, 'comment'])->name('product-details.comment');
+    Route::put('product/{id}', [ProductDetailsController::class, 'update'])->name(('product-details.update'));
 
     Route::get('/my-products', [MyProductsController::class, 'index'])->name('my-products.index');
+    Route::put('/my-products/{id}', [MyProductsController::class, 'update'])->name('my-products.update');
     Route::delete('my-products/delete/{product}', [MyProductsController::class, 'delete'])->name('my-products.delete');
 
     Route::get('/publish', [PublicationController::class, 'index'])->name('publish.index');
