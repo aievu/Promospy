@@ -8,8 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Models\Rule;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Filament\Models\Contracts\HasName;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasName
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
@@ -90,5 +91,10 @@ class User extends Authenticatable
         if($rule) {
             $this->rules()->detach($rule->id);
         }
+    }
+
+    public function getFilamentName(): string
+    {
+        return $this->first_name ?? $this->email;
     }
 }

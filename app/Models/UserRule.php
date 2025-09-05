@@ -9,6 +9,7 @@ class UserRule extends Model
     protected $table = 'user_rules';
 
     protected $fillable = [
+        'user_name',
         'user_id',
         'rule_id',
     ];
